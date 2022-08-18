@@ -1,0 +1,182 @@
+
+<!doctype html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Pagina de Inicio</title>
+    <link rel="stylesheet" href="static/core/css/estilos.css">
+
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.min.js">
+    <link rel="stylesheet" href="min.css">
+    <link rel="stylesheet" href="popper.min.js">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</head>
+
+<Body>
+    <!--<h1>FLOWERSANDPOWER</h1>-->
+    <!--- Navbar Superior-->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-white">
+        <div class="container-fluid">
+        
+            <h6><i>Talleres y Actividades Tercera Edad </i></h6>
+            <a class="navbar-brand">
+            </a>
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon bg-dark"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href=>Pagina Principal</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-expanded="false">Inicio de Sesión</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href=>Acceder a Cuenta</a></li>
+                            <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modaldesconnexion"
+                                    id="modaldesconnexionb">Desconectar Cuenta</a></li>
+                            <li><a class="dropdown-item" href=>Crear Cuenta de Usuario</a></li>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="" role="button"
+                            aria-expanded="false">Talleres</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href=>Talleres y Actividades</a></li>
+                            <li><a class="dropdown-item" href=>Formulario Solicitud Instructor</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="" role="button"
+                            aria-expanded="false">Contacto</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href=>Contactanos</a></li>
+                            <li><a class="dropdown-item" href=>Misión y Visión</a></li>
+                            <li><a class="dropdown-item" href=>Nosotros</a></li>
+                        </ul>
+                    </li>
+
+                    {% if user.is_superuser %}
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-expanded="false">Administración</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href=>Administrar Productos</a></li>
+                            <li><a class="dropdown-item" href=>Crear Productos</a></li>
+                            <li><a class="dropdown-item" href=>Administrar Usuarios</a></li>
+                            <li><a class="dropdown-item" href=>Crear cuenta Administrador</a></li>
+
+                        </ul>
+                    </li>
+                    {% endif %}
+                </ul>
+                <br>
+            </div>
+            <form class="d-flex" style="display: flex;" >
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+
+
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                </button>
+            </form>
+
+
+
+        </div>
+        
+    </nav>
+
+
+<div> 
+    <div id="contenido">
+
+        {% block contenido %}
+        {% endblock %}
+    </div>
+    
+    <body><!--- Footer--> 
+    <body>
+        <footer class="bg-dark text-white pt-5 pb-4">
+            <div class="container text-center text-md-left">
+                <div class="row text-center text-md-left">
+                    <div class="col-md-3 col-lg-3  col-xl-3 mx-auto mt-3 ">
+                        <h5 class="text-uppercase mb-4 font-weigth- text-white">Talleres y Actividades Tercera Edad. Municipalidad de Puente Alto </h5>
+                        <p>Dirección:
+                            Av. Eyzaguirre #02115, esquina Pie Andino Villa Primavera, Puente Alto Santiago - Chile.
+                        </p>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h5 class="text-uppercase mb-4 font-weigth-bold text-white">Talleres y Actividades</h5>
+                        <p>
+                            <a href="#" class="text-white" style="text-decoration: none;">Formulario de solicitud instructor </a>
+                        </p>
+                        <p>
+                            <a href="#" class="text-white" style="text-decoration: none;">Formulario de solicitud de talleres</a>
+                        </p>
+                        <p>
+                            <a href="#" class="text-white" style="text-decoration: none;">Cuenta Usuario</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+
+                        <h5 class="text-uppercase mb-4 font-wigth-bold text-white">Redes Sociales</h5>
+                        <p>
+                            <a href="#" class="text-white" style="text-decoration: none;">Instagram</a>
+                        </p>
+                        <p>
+                            <a href="#" class="text-white" style="text-decoration: none;">Facebook</a>
+                        </p>
+                        <p>
+                            <a href="#" class="text-white" style="text-decoration: none;">Whatsapp</a>
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h5 class="text-uppercase mb-4 font-weigth-bold text-white">Contactanos</h5>
+                        <p>
+                            <i class="fas fa-home mr-3"></i>+56 9 9999 9999
+                        </p>
+                        <p>
+                            <i class="bi bi-envelope"></i>talleres@mpuentealto.cl
+                        </p>
+
+                    </div>
+                </div>
+                <hr class="mb-4">
+                <div class="row align-item-center">
+                    <div class="col-md-7 col-lg-8">
+                        <p> Copyrigth 2022 All Rigths reserver by:
+                            <a href="#" class="text-white" style="text-decoration: none;">
+                                <strong class="text-white">Duoc Uc</strong>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+</body></div>
+
+
+
+</html>
