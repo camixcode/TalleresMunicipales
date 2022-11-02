@@ -15,3 +15,6 @@ def Ins_Taller(request):
 
 def Admin_Taller (request):
     return render (request, 'core/Admin_Taller.html')    
+
+def Form_Evaluacion (request):
+    return render (request, 'core/Form_Evaluacion.html')    
