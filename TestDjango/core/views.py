@@ -18,3 +18,6 @@ def Admin_Taller (request):
 
 def Form_Evaluacion (request):
     return render (request, 'core/Form_Evaluacion.html')    
+
+def Admin_General (request):
+    return render (request, 'core/Admin_General.html')    
