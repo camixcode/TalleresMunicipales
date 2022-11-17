@@ -12,6 +12,13 @@ const dataTableOptions = {
     ],
     pageLength: 3,
     destroy: true,
+    dom: 'Bfrtip',
+    buttons: [
+    'copyHtml5',
+    'excelHtml5',
+    'csvHtml5',
+    'pdfHtml5'
+    ],
     language: {
         lengthMenu: "Mostrar _MENU_ registros por página",
         zeroRecords: "Ningún usuario encontrado",
@@ -28,6 +35,7 @@ const dataTableOptions = {
         }
     }
 };
+
 
 const initDataTable = async () => {
     if (dataTableIsInitialized) {
