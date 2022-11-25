@@ -10,7 +10,7 @@ const dataTableOptions = {
         //{ searchable: false, targets: [1] }
         //{ width: "50%", targets: [0] }
     ],
-    pageLength: 3,
+    pageLength: 5,
     destroy: true,
     dom: 'Bfrtip',
     buttons: [
@@ -68,7 +68,12 @@ const listUsers = async () => {
                     <td>
                         <button class="btn btn-sm btn-primary"><i class="fa-solid fa-pencil"></i></button>
                         <button class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+
+                        <a href="" data-bs-toggle="modal" data-bs-target="#modal1">
+                        <button class="btn btn-sm btn-primary"><i class="fa-sharp fa-solid fa-eye"></i></button></a>
+
                     </td>
+
                 </tr>`;
         });
         tableBody_users.innerHTML = content;

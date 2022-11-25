@@ -36,32 +36,37 @@
     {% endblock %}
     <!-- FIN NAV -->
 </head>
+<Style>
 
+    .right {
+        text-align: right !important;
+      }
+    </Style>
 <body>
     <!-- ----------------------- -->
-    <!-- TABLA -->
-
+    
+        <!-- BOTON AGREGAR TALLER -->
     <div class="container my-3" style="background-color: rgb(254, 126, 126)">
         <p class="text-md-center text-light fs-3">Lista de Talleres</p>
     </div>
 
+    <div class="container my-3">
+        <div class="right">        
+            <button class="btn btn-sm btn-primary"><a class="text-md-center text-light fs-6" href="{%url 'crear_Taller'%}">Agregar un nuevo taller</a> <i class="fa-sharp fa-solid fa-plus fa fa-align-left"></i></button>
+        </div>
+    </div>
+        <!-- FIN BOTON AGREGAR TALLER ----------------------- -->
 
+<!-- TABLA -->
     <div class="container my-4">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <table id="datatable_users" class="table table-striped width-full" >
+                <table  class="table table-striped width-full" id="datatable_users">
                     <!-- <caption>
                         Talleres M.Puente Alto
                     </caption> -->
                     <thead>
                         <tr>
-                            <!-- <th class="centered">#</th>
-                            <th class="centered">Nombre taller</th>
-                            <th class="centered">Nombre Instructor</th>
-                            <th class="centered">Cupos</th>
-                            <th class="centered">Company</th>
-                            <th class="centered">Estado</th>
-                            <th class="centered">Opciones</th> -->
                             <th>#</th>
                             <th >Nombre taller</th>
                             <th >Nombre Instructor</th>
@@ -76,9 +81,6 @@
             </div>
         </div>
     </div>
-
-    
-
     <!-- TABLE FIN-->
     <!-- ----------------------- -->
     <!-- ----------------------- -->
@@ -101,19 +103,7 @@
             </div>
         </div>
     </div>
-    <div tabindex="-1" aria-labelledby="modal1" aria-hidden="true" class="modal fade" id="modal4">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="card mb-3">
-                <img src="{% static 'core/img/TallerLectura.jpg'%}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title text-md-center">Taller de Lectura</h5>
-                    <p class="card-text">Cuanto más lees, más información procesa tu mente, por lo que será más ágil y
-                        capaz de retener conocimientos. Las personas exitosas ejercitan su mente diariamente mediante la
-                        lectura y otros recursos como la realización de crucigramas y juegos de ingenio.</p>
-                    <p class="card-text"><small class="text-muted">Instructor Yerko Pérez</small></p>
-                </div>
-            </div>
-        </div>
+
         <!-- --FIN MODAL--------->
         <!-- Bootstrap-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
