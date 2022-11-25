@@ -33,7 +33,8 @@ const dataTableOptions = {
             next: "Siguiente",
             previous: "Anterior"
         }
-    }
+    },
+    responsive: true
 };
 
 
@@ -79,3 +80,9 @@ const listUsers = async () => {
 window.addEventListener("load", async () => {
     await initDataTable();
 });
+
+
+
+Estimado Cliente:
+Junto con saludar y esperando que tengan una excelente tarde, el siguiente comunicado es para explicar las intermitencias en nuestros procesos que reflejan las marcas de asistencia y acceso en  SmarTime.
+Debido al aumento de clientes que han iniciado servicios con Keytec, lo que nos tiene muy contentos, ha generado un alto tráfico de información en los servicios que gestionan todos estos datos en ciertos pick del día, ocasionando una reducción al rendimiento del día a día, sin embargo, junto a nuestro Partner Microsoft Azure, logramos estabilizar y mejorar los sistemas para continuar con la eficiencia que hemos entregado a lo largo del tiempo.
