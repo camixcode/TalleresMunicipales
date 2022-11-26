@@ -65,7 +65,6 @@
                     <!-- <caption>
                         Talleres M.Puente Alto
                     </caption> -->
-                    <thead>
                         <tr>
                             <th>#</th>
                             <th >Nombre taller</th>
@@ -75,8 +74,15 @@
                             <th >Estado</th>
                             <th >Opciones</th>
                         </tr>
-                    </thead>
-                    <tbody id="tableBody_users"></tbody>
+                        {% for mt in material %}
+                            <tr>
+                                <td>{{mt.idMaterial}}</td>
+                                <td>{{mt.nombreMaterial}}</td>
+                                <td>{{mt.descripcionMaterial}}</td>
+                                <td>{{mt.stock}}</td>                                
+
+                            </tr>
+                            {% endfor %}
                 </table>
             </div>
         </div>
