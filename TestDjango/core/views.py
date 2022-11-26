@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from core.models import Material
+
 # Create your views here.
 def home(request):
     return render(request,'core/home.html')
@@ -20,7 +22,11 @@ def Form_Evaluacion (request):
     return render (request, 'core/Form_Evaluacion.html')    
 
 def Admin_General (request):
-    return render (request, 'core/Admin_General.html')  
+    material =Material.objects.all()
+    datos = {
+        'material':material
+    }
+    return render (request, 'core/Admin_General.html',datos)  
 
 def crear_Taller (request):
     return render (request, 'core/crear_Taller.html')     
