@@ -45,7 +45,7 @@ const initDataTable = async () => {
 
     await listUsers();
 
-    dataTable = $("#datatable_users").DataTable(dataTableOptions);
+    dataTable = $("").DataTable(dataTableOptions);
 
     dataTableIsInitialized = true;
 };
