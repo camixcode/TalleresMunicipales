@@ -29,4 +29,7 @@ def Admin_General (request):
     return render (request, 'core/Admin_General.html',datos)  
 
 def crear_Taller (request):
-    return render (request, 'core/crear_Taller.html')     
+    return render (request, 'core/crear_Taller.html')    
+
+def crear_Material (request):
+    return render (request, 'core/crear_Material.html')    
