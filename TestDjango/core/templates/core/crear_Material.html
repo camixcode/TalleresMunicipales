@@ -31,41 +31,19 @@
   <div class="container my-4">
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <form class="row g-3 needs-validation" novalidate>
-          <div class="col-md-12">
-            <label for="validationCustom01" class="form-label">Nombre de Material</label>
-            <input type="text" class="form-control" id="validationCustom01" value="" required>
-            <div class="valid-feedback">
-              Looks good!
-            </div>
-          </div>
 
-          <form class="row g-3 needs-validation" novalidate>
-            <div class="col-md-12">
-              <label for="validationCustom01" class="form-label">Cantidad de Material</label>
-              <input type="text" class="form-control" id="validationCustom01" value="" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
-            </div>
-
-            <div class="col-md-12">
-              <label for="validationCustom03" class="form-label">Descripción</label>
-              <input type="text" class="form-control" id="validationCustom03" required>
-              <div class="invalid-feedback">
-                Please provide a valid city.
-              </div>
-            </div>
-
-            <div class="col-12">
-              <button class="btn btn-success" type="submit">Envíar Formulario</button>
-            </div>
-          </form>
-          <br><br><br>
-          <div class="d-grid gap-2">
-            <a href="{%url 'Admin_General'%}" class="btn btn-primary" role="button" data-bs-toggle="button"
-              aria-pressed="true">Volver a Administrador de Material</a>
-          </div>
+        <form action="" method="post">
+          {% csrf_token %}
+          {{form}}
+          <button type="submit">Enviar</button>
+        </form>
+        <br>
+        {{mensaje}}
+        <br><br><br>
+        <div class="d-grid gap-2">
+          <a href="{%url 'Admin_General'%}" class="btn btn-primary" role="button" data-bs-toggle="button"
+            aria-pressed="true"><i class="fa-sharp fa-solid fa-arrow-left"></i> Volver a Administrador de Material</a>
+        </div>
       </div>
     </div>
   </div>

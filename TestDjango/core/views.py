@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .form import MaterialForm
 
 from core.models import Material
 
@@ -32,4 +33,13 @@ def crear_Taller (request):
     return render (request, 'core/crear_Taller.html')    
 
 def crear_Material (request):
-    return render (request, 'core/crear_Material.html')    
+    datos = {
+        'form' : MaterialForm()
+    }
+    if request.method == 'POST':
+        formulario = MaterialForm(request.POST, request.FILES)
+
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje'] = "Datos Guardados Correctamente"       
+    return render (request, 'core/crear_Material.html', datos)    
