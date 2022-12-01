@@ -86,4 +86,18 @@ def Admin_Cliente (request):
         datos = {
             'material':material
         }
-        return render (request, 'core/Admin_Cliente.html',datos)           
+        return render (request, 'core/Admin_Cliente.html',datos)
+
+def Admin_Instructor (request):
+        material =Material.objects.all()
+        datos = {
+            'material':material
+        }
+        return render (request, 'core/Admin_Instructor.html',datos) 
+
+def Admin_Banner_Promocion (request):
+        material =Material.objects.all()
+        datos = {
+            'material':material
+        }
+        return render (request, 'core/Admin_Banner.html',datos)               
