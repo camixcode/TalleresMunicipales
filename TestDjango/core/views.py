@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .form import MaterialForm
+from django.contrib.auth import authenticate, login
 
 from core.models import Material
 

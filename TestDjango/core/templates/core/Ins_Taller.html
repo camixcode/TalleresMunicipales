@@ -43,6 +43,7 @@
 
     <!-- BOTON AGREGAR TALLER -->
     <div class="container my-3" style="background-color: rgb(254, 126, 126)">
+
         <p class="text-md-center text-light fs-3"><i class="fa-sharp fa-solid fa-magnifying-glass"></i>     Postulación a Talleres</p>
     </div>
 
@@ -119,6 +120,86 @@
         </div>  
     </div>
     
+
+
+        <p class="text-md-center text-light fs-3"><i class="fa-sharp fa-solid fa-magnifying-glass"></i>     Lista de Materiales</p>
+    </div>
+    <div class="container my-3">
+        <div class="right">
+            <button class="btn btn-sm btn-primary"><a class="text-md-center text-light fs-6"
+                    href="{%url 'crear_Material'%}">  Agregar Material</a> <i
+                    class="fa-sharp fa-solid fa-plus fa fa-align-left"></i></button>
+        </div>
+    </div>
+    <!-- FIN BOTON AGREGAR TALLER ----------------------- -->
+    <!-- TABLA -->
+    <div class="container md-4"> 
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="title">
+                    <div class="table-responsive">
+                        <table class="table table-striped dt-responsive" style="width:100%;"
+                            id="myTable">
+                            <thead>
+                                <tr>
+                                    <th style="width:5%;">ID</th>
+                                    <th style="width:40%;">Nombre Taller</th>
+                                    <th style="width:40%;">Descripcion Taller</th>
+                                    <th style="width:40%;">Opciones</th>
+
+                                  
+                                </tr>
+                            </thead>
+                            <tbody>
+                            
+                                <tr>
+                                    <td>1</td>
+                                    <td>Taller yoga</td>
+                                    <td>Yoga</td>
+                                    
+                                    <td>
+                                        <button type="button" class="btn btn-primary">Detalle</button>
+                                        <button type="button" class="btn btn-success "href="" data-bs-toggle="modal" data-bs-target="#modal1">Postular</button>
+
+                                        
+                                    </td>
+                           
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- TABLE FIN-->
+    <!-- ----------------------- -->
+    <!-- ----------------------- -->
+    <!-- Footer -->
+    {% include 'Footer.html'%}
+    <!-- Footer FIN-->
+    <!-- ----------------------- -->
+    <!-- --MODAL--------->
+    <div tabindex="-1" aria-labelledby="modal1" aria-hidden="true" class="modal fade" id="modal1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="card mb-2">
+                <img src="{% static 'core/img/adulto-mayor-3.jpeg'%}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title text-md-center">Taller de Yoga</h5>
+                  <p class="card-text">Descripción: El yoga es una práctica que conecta el cuerpo, la respiración y la mente. Esta práctica utiliza posturas físicas, ejercicios de respiración y meditación para mejorar la salud general. El yoga se desarrolló como una práctica espiritual hace miles de años.</p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Jornada: Lunes, Miercoles y Viernes</li>
+                    <li class="list-group-item">Horario: 10:00 am - 12:00 pm</li>
+                    <li class="list-group-item">Ubicación: Balmaceda 265, Puente Alto, Región Metropolitana </li>
+                    <li class="list-group-item">Instructor: Yerko Vásquez </li>
+                    <li class="list-group-item">Valor: Gratis, previa inscripción </li>
+                  <div class="d-grid gap-2"> <button class="btn btn-info btn-lg" type="button">Postular</button></div>
+    
+                </div>
+              </div>
+        </div>  
+    </div>
+    
+
 
     <!-- --FIN MODAL--------->
     <!-- Bootstrap-->
