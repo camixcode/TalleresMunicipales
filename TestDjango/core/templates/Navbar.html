@@ -10,15 +10,15 @@
 
 
 
-<nav class="navbar navbar-expand-lg navbar-dark ">
-    <div class=" rounded container-fluid  text-black pd-2" style="font-family: 'Poppins', sans-serif; background: #e4321a;
-   background: linear-gradient(to right, #f7aa77, #ff760d, #f7aa77); ">
+<nav class="navbar navbar-expand-lg navbar-light  ">
+    <div class=" rounded container-fluid  text-dark pd-2" style="font-family: 'Poppins' , sans-serif; background: #7d2519;
+   background: linear-gradient(to right, #c7beb9, #cfc7c0, #c7beb9); ">
         <a class="navbar-brand" href="#"></a>
         <img src="{% static 'core/img/logoPuente.png'%}" alt="logo" width="100" height="..."
             class="d-inline-block align-text-top">
         <!-- <p class="fs-4">Talleres Puente Alto</p> -->
         <button 
-        class="navbar-toggler" 
+        class="navbar-toggler"
         type="button" 
         data-bs-toggle="collapse" 
         data-bs-target="#navbarNavDropdown"
@@ -29,7 +29,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown" style="font-family: 'Poppins', sans-serif ">
-            <ul class="nav nav-tabs mx-auto nav-tabs-link-hover-border-color:#modal4 " >
+            <ul class="nav mx-auto" >
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{%url 'home'%}">
                         <p class="fs-4">Home</p>
@@ -53,7 +53,7 @@
                     <ul class="dropdown-menu" style="background-color: rgb(237, 221, 71);">
                         <li><a class="dropdown-item" href="#">Tús Talleres</a></li>
                         <li><a class="dropdown-item" href="{%url 'Form_Evaluacion'%}">Evalúa tus Talleres</a></li>
-                        <li><a class="dropdown-item" href="#">Tús correos</a></li>
+                        <!-- <li><a class="dropdown-item" href="#">Tús correos</a></li> -->
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

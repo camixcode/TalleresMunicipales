@@ -14,7 +14,11 @@ def Form_Instructor_Taller(request):
     return render(request, 'core/Form_Instructor_Taller.html')    
  
 def Ins_Taller(request):
-    return render (request, 'core/Ins_Taller.html')
+    material =Material.objects.all()
+    datos = {
+        'material':material
+    }
+    return render (request, 'core/Ins_Taller.html', datos)
 
 def Admin_Taller (request):
     return render (request, 'core/Admin_Taller.html')    
