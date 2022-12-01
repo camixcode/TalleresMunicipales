@@ -22,7 +22,11 @@ def Ins_Taller(request):
     return render (request, 'core/Ins_Taller.html', datos)
 
 def Admin_Taller (request):
-    return render (request, 'core/Admin_Taller.html')    
+    material =Material.objects.all()
+    datos = {
+        'material':material
+    }
+    return render (request, 'core/Admin_Taller.html', datos)    
 
 def Form_Evaluacion (request):
     return render (request, 'core/Form_Evaluacion.html')    
@@ -48,3 +52,38 @@ def crear_Material (request):
             formulario.save()
             datos['mensaje'] = "Datos Guardados Correctamente"       
     return render (request, 'core/crear_Material.html', datos)    
+
+def Admin_Perfil (request):
+        material =Material.objects.all()
+        datos = {
+            'material':material
+        }
+        return render (request, 'core/Admin_Perfil.html',datos)  
+
+def Admin_Muni (request):
+        material =Material.objects.all()
+        datos = {
+            'material':material
+        }
+        return render (request, 'core/Admin_Muni.html',datos)          
+
+def Admin_Pago (request):
+        material =Material.objects.all()
+        datos = {
+            'material':material
+        }
+        return render (request, 'core/Admin_Pago.html',datos)         
+
+def Admin_Postulacion (request):
+        material =Material.objects.all()
+        datos = {
+            'material':material
+        }
+        return render (request, 'core/Admin_Postulacion.html',datos)          
+
+def Admin_Cliente (request):
+        material =Material.objects.all()
+        datos = {
+            'material':material
+        }
+        return render (request, 'core/Admin_Cliente.html',datos)           
