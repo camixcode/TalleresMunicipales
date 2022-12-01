@@ -64,19 +64,22 @@
                             <thead>
                                 <tr>
                                     <th style="width:5%;">ID</th>
-                                    <th style="width:40%;">Nombre Material</th>
-                                    <th style="width:40%;">Descripcion Material</th>
-                                    <th style="width:5%;">Stock</th>
-                                    <th style="width:10%;">Acciones</th>
+                                    <th style="width:35%;">Nombre Postulante</th>
+                                    <th style="width:30%;">Apellido Postulante</th>
+                                    <th style="width:15%;">Rut</th>
+                                    <th style="width:15%;">Correo</th>
+                                    <th style="width:10%;">Opciones</th>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for mt in material %}
+                            
                                 <tr>
-                                    <td>{{mt.idMaterial}}</td>
-                                    <td>{{mt.nombreMaterial}}</td>
-                                    <td>{{mt.descripcionMaterial}}</td>
-                                    <td>{{mt.stock}}</td>
+                                    <td>1</td>
+                                    <td>Yerko </td>
+                                    <td>Vazques</td>
+                                    <td>1231321-7</td>
+                                    <td>yerko@gmail.com</td>
                                     <td>
                                         <button class="btn btn-sm btn-primary"><i
                                                 class="fa-solid fa-pencil"></i></button>
@@ -84,7 +87,7 @@
                                                 class="fa-solid fa-trash-can"></i></button>
                                     </td>
                                 </tr>
-                                {% endfor %}
+                            
                             </tbody>
                         </table>
                     </div>
