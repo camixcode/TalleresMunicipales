@@ -26,16 +26,27 @@
     </div>
   </div>
   <!-- FIN TITULO -->
-
+  {% load crispy_forms_tags %}
   <!-- FORMULARIO -->
   <div class="container my-4">
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
         <form action="" method="post">
+
           {% csrf_token %}
-          {{form}}
-          <button type="submit">Enviar</button>
+
+          {{ form | crispy }}
+          
+          <br>
+        <div class="d-flex justify-content-end">
+          <input type="submit" class="btn btn-success" value="Enviar">
+          &nbsp;
+          &nbsp;
+          <input type="reset" class="btn btn-danger" value="Limpiar">
+        
+        </div> 
+          
         </form>
         <br>
         {{mensaje}}
