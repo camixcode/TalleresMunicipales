@@ -19,7 +19,7 @@
 
 <body>
 
-
+    {% load crispy_forms_tags %}
     <br><br>
     <div class="container">
         <div class="row">
@@ -32,7 +32,7 @@
                             <div style="text-align: center;">
                                 {% csrf_token %}
 
-                                {{ form }}
+                                {{ form | crispy}}
                             </div>
                             <br>
                             <center>
