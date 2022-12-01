@@ -100,4 +100,11 @@ def Admin_Banner_Promocion (request):
         datos = {
             'material':material
         }
-        return render (request, 'core/Admin_Banner.html',datos)               
+        return render (request, 'core/Admin_Banner.html',datos)  
+
+def Tus_Talleres (request):
+        material =Material.objects.all()
+        datos = {
+            'material':material
+        }
+        return render (request, 'core/Tus_Talleres.html',datos)                      
