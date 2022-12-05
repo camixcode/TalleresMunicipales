@@ -22,91 +22,65 @@
     .mt-n1 {
         margin-top: -0.25rem !important;
     }
-
-
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-light  ">
-    <div class=" rounded container-fluid  text-dark pd-2" style="font-family: 'Poppins' , sans-serif; background: #7d2519;
-   background: linear-gradient(to right, #c7beb9, #cfc7c0, #c7beb9); ">
-        <a class="navbar-brand" href="#"></a>
-        <img src="{% static 'core/img/logoPuente.png'%}" alt="logo" width="100" height="..."
-            class="d-inline-block align-text-top">
-        <!-- <p class="fs-4">Talleres Puente Alto</p> -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle Navbar">
+<!-- nav -->
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="navbarNavDropdown" style="font-family: 'Poppins', sans-serif ">
-            <ul class="nav mx-auto">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{%url 'home'%}">
-                        <p class="fs-4">Home</p>
-                    </a>
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{%url 'Ins_Taller'%}"> <i class="bi bi-person-plus"></i>
-                        <p class="fs-4">Postular a Talleres</p>
-                    </a>
+                    <a class="nav-link" href="#">Link</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{%url 'Form_Instructor_Taller'%}">
-                        <p class="fs-4">¡Se parte del equipo!</p>
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="..." role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <p class="fs-4">Perfil</p>
-                    </a>
-                    <ul class="dropdown-menu" style="background-color: rgb(237, 221, 71);">
-                        <!-- <li><a class="dropdown-item" href="{%url 'Tus_Talleres'%}">Tús Talleres</a></li> -->
-                        <li><a class="dropdown-item" href="{%url 'Form_Evaluacion'%}">Evalúa tus Talleres</a></li>
-                        <!-- <li><a class="dropdown-item" href="#">Tús correos</a></li> -->
-                    </ul>
-                </li>
-                {% if user.is_superuser %}
-
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <p class="fs-4">Administración</p>
+                        Dropdown
                     </a>
-                    <ul class="dropdown-menu" style="background-color: rgb(237, 129, 71);">
-                        <li><a class="dropdown-item" href="{%url 'Admin_Banner'%}">Administrar Banner promoción</a></li>
-                        <li><a class="dropdown-item" href="{%url 'Admin_Instructor'%}">Administrar Instructor</a></li>
-                        <li><a class="dropdown-item" href="{%url 'Admin_Cliente'%}">Administrar Cliente</a></li>
-                        <li><a class="dropdown-item" href="{%url 'Admin_Postulacion'%}">Administrar Postulación</a></li>
-                        <li><a class="dropdown-item" href="{%url 'Admin_Pago'%}">Administrar Pago</a></li>
-                        <li><a class="dropdown-item" href="{%url 'Admin_General'%}">Administrar Material</a></li>
-                        <li><a class="dropdown-item" href="{%url 'Admin_Muni'%}">Administrar Municipio</a></li>
-                        <li><a class="dropdown-item" href="{%url 'Admin_Perfil'%}">Administrar Perfiles</a></li>
-                        <li><a class="dropdown-item" href="{%url 'Admin_Taller'%}">Administrar Taller</a></li>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
-
-                <div class="p-2 d-flex justify-content-end">
-                    <div class=".mt-n1 ">
-                        {% endif %}
-                        {% if user.is_authenticated %}
-
-                        <a class="nav-link1" href="#" style="margin-left:50px;">
-                            <h5>Usuario: {{user.username}}</h5>
-                        </a>
-                        {% else %}
-
-                        <a class="nav-link1" href="{% url 'login' %}" style="margin-left: 30px; ">
-                            <h5>iniciar sesion</h5>
-                        </a>
-                        {% endif %}
-                        <a class="nav-link1" href="{% url 'logout' %}" style="margin-left: 50px ;margin-right: 30px; ">
-                            <h5>cerrar sesión</h5>
-                        </a>
-                    </div>
-                </div>
-
+                <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li>
             </ul>
+            <form class="d-flex" role="search">
+                {% if user.is_authenticated %}
+                <a class="nav-link1" href="#" style="margin-left:50px;">
+                    <h5>Usuario: {{user.username}}</h5>
+                </a>
+                {% else %}
+
+                <a class="nav-link1" href="{% url 'login' %}" style="margin-left: 30px; ">
+                    <h5>iniciar sesion</h5>
+                </a>
+
+                {% endif %}          
+                    <button class="btn btn-primary btn-sm" href="{% url 'logout' %}">
+                    
+                            <h5>cerrar sesión</h5>
+                    
+                    </button>
+                
+
+
+                <!-- <button class="btn btn-outline-primary" type="submit">Ingresar</button> -->
+            </form>
         </div>
     </div>
 </nav>
+<!-- FinNav -->
