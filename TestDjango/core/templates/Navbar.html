@@ -15,7 +15,8 @@
     }
 
     .nav-link1 {
-        color: rgb(19, 72, 230) !important;
+        background-color: #e4a71a;
+        color: rgb(118, 111, 89) !important;
         text-decoration: none !important;
     }
 
@@ -25,62 +26,114 @@
 </style>
 
 <!-- nav -->
-<nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+<div class="p-2"
+style="font-family: 'Poppins', sans-serif; background: #e4a71a;background: linear-gradient(to right, #aca4a0, #c0b9b2, #aca4a0)">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid d-flex justify-content-end">
+            <div class="col-md-1 text-center">
+                <p class="fs-6 fw-bold">Municipalidad</p>
+                <hr>
+                <p class="fs-6 fw-bold">Puente Alto</p>
+            </div>
+            <button 
+                class="navbar-toggler" 
+                type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" 
+                aria-controls="navbarSupportedContent" 
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav nav-tabs me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#"><p class="text-md-center text-black fs-4" >Pagina Principa</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#"><p class="text-md-center text-black fs-4" >Se parte de nuestro Equipo</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#"><p class="text-md-center text-black fs-4" >Postula a los Talleres</p></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a 
+                        class="nav-link dropdown-toggle" 
+                        href="#" role="button" 
+                        data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                </li>
-            </ul>
-            <form class="d-flex" role="search">
-                {% if user.is_authenticated %}
-                <a class="nav-link1" href="#" style="margin-left:50px;">
-                    <h5>Usuario: {{user.username}}</h5>
-                </a>
-                {% else %}
-
-                <a class="nav-link1" href="{% url 'login' %}" style="margin-left: 30px; ">
-                    <h5>iniciar sesion</h5>
-                </a>
-
-                {% endif %}          
-                    <button class="btn btn-primary btn-sm" href="{% url 'logout' %}">
-                    
-                            <h5>cerrar sesión</h5>
-                    
+                        <p class="text-md-center text-black fs-4" >Perfil</p>
+                        </a>
+                        <ul class="dropdown-menu" style="font-family: 'Poppins', sans-serif; background: #e4a71a;background: linear-gradient(to right, #aca4a0, #c0b9b2, #aca4a0)">
+                            <li><a class="dropdown-item" href="#">Evaluar Taller</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a 
+                        class="nav-link dropdown-toggle" 
+                        href="#" role="button" 
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <p class="text-md-center text-black fs-4" >Administración</p>
+                        </a>
+                        <ul class="dropdown-menu" style="font-family: 'Poppins', sans-serif; background: #e4a71a;background: linear-gradient(to right, #aca4a0, #c0b9b2, #aca4a0)">
+                            <li>
+                                <a class="dropdown-item" href="#">Action</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="d-flex justify-content-end">
+                    {% if user.is_authenticated %}
+                    <button class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size:
+                  Custom button" href="{% url 'logout' %}">
+                        <h4>{{user.username}}, Cierra Sesión</h4>
                     </button>
-                
-
-
-                <!-- <button class="btn btn-outline-primary" type="submit">Ingresar</button> -->
-            </form>
+                    {% else %}
+                    <a class="nav-link1" href="{% url 'login' %}" style="margin-left: 10px; ">
+                        <h5>iniciar sesion</h5>
+                    </a>
+                    {% endif %}
+                    <!-- <button class="btn btn-outline-primary" type="submit">Ingresar</button> -->
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</div>
+
+
 <!-- FinNav -->
