@@ -186,3 +186,12 @@ def registro (request):
             return redirect(to="home")
         data["form"] = formulario
     return render(request, 'registration/registro.html',data)
+
+def evaluarPosulacion(request, id):
+        postulacionInstr = PostulacionInstr.objects.get(idPostulacion=id)
+        postulacionInstr = PostulacionInstr.objects.all()
+        messages.success(request, "Postulacion Evaluada correctamente")
+        datos = {
+            'postulacionInstr': postulacionInstr
+        }
+        return render(request, 'core/Admin_Postulacion.html', datos)

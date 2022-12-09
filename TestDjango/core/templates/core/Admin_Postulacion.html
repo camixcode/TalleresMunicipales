@@ -38,7 +38,33 @@
     }
 </Style>
 
+
+
 <body>
+
+    {% block js %}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script>
+        function evaluarPostulacion(id){
+        Swal.fire({
+            "title":"¿Estas Seguro?",
+            "text":"Esta accion no se puede deshacer",
+            "icon":"question",
+            "showCancelButton":true,
+            "cancelButtonText":"No, rechazar",
+            "confirmButtonText":"Si, aceptar",
+            "reverseButtons":true,
+            "confirmButtonColor":"#dc3545"
+        })
+        .then(function(result){
+            if(result.isConfirmed){
+                window.location.href= "Admin_Postulacion"
+            }
+        })
+    }
+    </script>
+    {% endblock %}
     <!-- ----------------------- -->
 
     <!-- BOTON AGREGAR TALLER -->
@@ -89,7 +115,7 @@
                                     <td>{{ps.correo}}</td>
                                     <td>{{ps.direccion}}</td>
                                     <td>{{ps.estado}}</td>
-                                    <td><button type="button" class="btn btn-primary">Evaluar</button>
+                                    <td><button type="button" class="btn btn-primary" onclick="evaluarPostulacion({{ps.idPostulacion}})">Evaluar</button>
                                     </button></td>
 
 
