@@ -142,7 +142,15 @@ def Tus_Talleres(request):
     }
     return render(request, 'core/Tus_Talleres.html', datos)
 
-
+def Eliminar_Material(request, id):
+        material = Material.objects.get(idMaterial=id)
+        material.delete()
+        material = Material.objects.all()
+        messages.success(request, "Material eliminado correctamente")
+        datos = {
+            'material': material
+        }
+        return render(request, 'core/Admin_General.html', datos)
 
 def Modificar_Material(request, id):
     material = Material.objects.get(idMaterial=id)
@@ -157,21 +165,27 @@ def Modificar_Material(request, id):
             return redirect(to="Admin_General")
         datos = {
                 'form': MaterialForm(instance=material),
-                'mensaje': "Modificado corretamente"
+                'mensaje': "Modificado correctamente"
             }
-
     return render(request, 'core/Modificar_Material.html', datos)
 
-    
-def Eliminar_Material(request, id):
-        material = Material.objects.get(idMaterial=id)
-        material.delete()
-        material = Material.objects.all()
-        messages.success(request, "Material eliminado correctamente")
+def Validar_Postulacion(request, id):
+    postulacionInstr = PostulacionInstr.objects.get(idPostulacion=id)
+    datos = {
+        'form': PostulacionInstrForm(instance=postulacionInstr)
+    }
+    if request.method == 'POST':
+        formulario = PostulacionInstrForm(data=request.POST, instance=postulacionInstr)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Postulacion aceptada correctamente")
+            return redirect(to="Admin_Postulacion")
         datos = {
-            'material': material
-        }
-        return render(request, 'core/Admin_General.html', datos)
+                'form': PostulacionInstrForm(instance=postulacionInstr),
+                'mensaje': "Correo envíado correctamente"
+                }     
+    return render(request, 'core/Validar_Postulacion.html', datos)    
+
 
 def registro (request):
     data ={

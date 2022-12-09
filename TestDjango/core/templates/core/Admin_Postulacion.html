@@ -83,11 +83,11 @@
                             <thead>
                                 <tr>
                                     <th style="width:5%;">ID</th>
-                                    <th style="width:15%;">Nombre</th>
-                                    <th style="width:15%;">Apellido</th>
+                                    <th style="width:10%;">Nombre</th>
+                                    <th style="width:10%;">Apellido</th>
                                     <th style="width:10%;">Rut</th>
                                     <th style="width:20%;">Correo</th>
-                                    <th style="width:50%;">Direccion</th>
+                                    <th style="width:30%;">Direccion</th>
                                     <!-- <th style="width:15%;">Estado</th> -->
                                     <th style="width:15%;">Evaluar</th>
                                 </tr>
@@ -104,8 +104,14 @@
                                     <td>{{ps.direccion}}</td>
                                     <!-- <td>{{ps.estado}}</td> -->
                                     <td>
-                                        <button type="button" class="btn btn-primary" onclick="evaluarPostulacion({{ps.idPostulacion}})">Evaluar
-                                    </button>
+                                    <!-- <button type="button" class="btn btn-primary" onclick="evaluarPostulacion({{ps.idPostulacion}})">Evaluar
+                                    </button> 
+                                http://127.0.0.1:8000/Modificar_Material/{{mt.idMaterial}}-->
+                                    <button class="btn btn-primary">
+                                        <a href="http://127.0.0.1:8000/Validar_Postulacion/{{ps.idPostulacion}}">
+                                            <i class="fa-solid fa-pencil" style="color: aliceblue"></i>
+                                        </a>
+                                    </button>      
                                     </td>
                                 </tr>
                                 {% endfor %}

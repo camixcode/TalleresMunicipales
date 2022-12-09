@@ -6,21 +6,19 @@ from django.forms import ModelForm
 
 
 class MaterialForm (forms.ModelForm):
-
     class Meta:
         model = Material 
         fields = ("idMaterial","nombreMaterial","descripcionMaterial","stock")
-
     def clean(self):
         print(self.cleaned_data)
         return self.cleaned_data
 
-class PostulacionInstrForm (forms.ModelForm):
 
+
+class PostulacionInstrForm (forms.ModelForm):
     class Meta:
         model = PostulacionInstr
-        fields = ("idPostulacion","nombres","apellidos","correo","direccion","rut")
-
+        fields = ("idPostulacion","nombres","apellidos","correo","direccion","rut", "estado")
     def clean(self):
         print(self.cleaned_data)
         return self.cleaned_data
@@ -30,7 +28,6 @@ class CustomerUserCreationForm (UserCreationForm):
    class Meta:
     model = User
     fields=['username',"first_name","last_name","email","password1","password2"]
-
 class ModificarUsuario (ModelForm):
    class Meta:
     model = User
