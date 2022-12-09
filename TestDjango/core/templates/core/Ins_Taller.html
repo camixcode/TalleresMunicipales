@@ -42,8 +42,10 @@
     <!-- ----------------------- -->
 
     <!-- BOTON AGREGAR TALLER -->
-    <div class="container my-3" style="background-color: rgb(254, 126, 126)">
-        <p class="text-md-center text-light fs-3"><i class="fa-sharp fa-solid fa-magnifying-glass"></i>     Postulación a Taller</p>
+    <div class="container my-3" style="font-family: 'Poppins', sans-serif; 
+    background: #e4321a;
+    background: linear-gradient(to right, #f7aa77, #ff760d, #f7aa77); ">
+        <p class="text-md-center text-light fs-3">     Postulación a Taller</p>
     </div>
 
     <!-- FIN BOTON AGREGAR TALLER ----------------------- -->
@@ -58,31 +60,30 @@
                             <thead>
                                 <tr>
                                     <th style="width:5%;">ID</th>
-                                    <th style="width:35%;">Nombre Taller</th>
+                                    <th style="width:30%;">Nombre Taller</th>
                                     <th style="width:35%;">Municipalidad</th>
                                     <th style="width:10%;">Cupos</th>
-                                    <th style="width:15%;">Opciones</th>
+                                    <th style="width:20%;">Opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for mt in material %}
                                 <tr>
-                                    <td>{{mt.idMaterial}}</td>
-                                    <td>{{mt.nombreMaterial}}</td>
-                                    <td>{{mt.descripcionMaterial}}</td>
-                                    <td>{{mt.stock}}</td>
+                                    <td>1</td>
+                                    <td>Yoga</td>
+                                    <td>Puente Alto</td>
+                                    <td>15</td>
+                                    
                                     <td>
                                         <button 
                                         class="btn btn-sm btn-primary" 
                                         data-bs-toggle="modal"
-                                        data-bs-target="#modal1" >Descripción</button>
+                                        data-bs-target="#modal1" >Ver descripción</button>
                                         <button 
                                         class="btn btn-sm btn-success">
                                         <a class="text-md-center text-light fs-6"
                                             href="{%url 'Form_Inscripcion_Taller'%}">Postular</a></button>                                       
                                     </td>
                                 </tr>
-                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -116,8 +117,6 @@
                     <li class="list-group-item">Ubicación: Balmaceda 265, Puente Alto, Región Metropolitana </li>
                     <li class="list-group-item">Instructor: Yerko Vásquez </li>
                     <li class="list-group-item">Valor: Gratis, previa inscripción </li>
-                  <div class="d-grid gap-2"> <button class="btn btn-info btn-lg" type="button">Postular</button></div>
-    
                 </div>
               </div>
         </div>  
