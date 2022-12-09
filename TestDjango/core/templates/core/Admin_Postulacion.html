@@ -94,19 +94,12 @@
                                     <th style="width:30%;">Apellido Postulante</th>
                                     <th style="width:15%;">Rut</th>
                                     <th style="width:15%;">Correo</th>
-                                    <th style="width:15%;">Direccion</th>
-                                    <th style="width:15%;">Estado</th>
-                                    <th style="width:15%;">Evaluar</th>
-
-
-
-                                    
+                                    <th style="width:10%;">Opciones</th>
 
                                 </tr>
                             </thead>
                             <tbody>
                             
-                                {% for ps in postulacion %}
                                 <tr>
                                     <td>{{ps.idPostulacion}}</td>
                                     <td>{{ps.nombres}}</td>
@@ -118,13 +111,6 @@
                                     <td><button type="button" class="btn btn-primary" onclick="evaluarPostulacion({{ps.idPostulacion}})">Evaluar</button>
                                     </button></td>
 
-
-
-
-
-
-                                </tr>
-                                {% endfor %}
                             
                             </tbody>
                         </table>
