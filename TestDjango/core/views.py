@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .form import MaterialForm
+from .form import MaterialForm, CustomerUserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.shortcuts import redirect, render
@@ -160,3 +160,18 @@ def Eliminar_Material(request, id):
             'material': material
         }
         return render(request, 'core/Admin_General.html', datos)
+
+def registro (request):
+    data ={
+        'form':CustomerUserCreationForm
+    }
+    if request.method =='POST':
+        formulario = CustomerUserCreationForm(data= request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request,"Te has registrado correctamente")
+            user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
+            login(request,user)
+            return redirect(to="home")
+        data["form"] = formulario
+    return render(request, 'registration/registro.html',data)
