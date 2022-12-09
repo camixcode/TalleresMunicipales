@@ -101,8 +101,13 @@
                                     <td>{{mt.descripcionMaterial}}</td>
                                     <td>{{mt.stock}}</td>
                                     <td>
-                                        <a href="http://127.0.0.1:8000/Modificar_Material/{{mt.idMaterial}}">Modificar/</a>                                        
-                                        <a href="#" onclick="eliminarMaterial({{mt.idMaterial}})">Eliminar</a>
+                                        <button class="btn btn-success">
+                                            <a href="http://127.0.0.1:8000/Modificar_Material/{{mt.idMaterial}}"><p class="text-md-center text-light fs-6" >Modificar</p></a>
+                                        </button>
+                                        <button class="btn btn-warning">
+                                            <a href="#" onclick="eliminarMaterial({{mt.idMaterial}})"><p class="text-md-center text-dark fs-6" >Eliminar</p></a>
+                                        </button>                                        
+                                        
                                     </td>
                                 </tr>
                                 {% endfor %}
