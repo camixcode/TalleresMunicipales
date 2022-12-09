@@ -87,10 +87,10 @@
                             <thead>
                                 <tr>
                                     <th style="width:5%;">ID</th>
-                                    <th style="width:40%;">Nombre Material</th>
-                                    <th style="width:40%;">Descripcion Material</th>
+                                    <th style="width:30%;">Nombre Material</th>
+                                    <th style="width:30%;">Descripcion Material</th>
                                     <th style="width:5%;">Stock</th>
-                                    <th style="width:10%;">Acciones</th>
+                                    <th style="width:15%;">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -101,7 +101,7 @@
                                     <td>{{mt.descripcionMaterial}}</td>
                                     <td>{{mt.stock}}</td>
                                     <td>
-                                        <a href="http://127.0.0.1:8000/Modificar_Material/{{mt.idMaterial}}">Modificar</a>                                        
+                                        <a href="http://127.0.0.1:8000/Modificar_Material/{{mt.idMaterial}}">Modificar/</a>                                        
                                         <a href="#" onclick="eliminarMaterial({{mt.idMaterial}})">Eliminar</a>
                                     </td>
                                 </tr>
@@ -138,6 +138,21 @@
             </div>
         </div>
     </div>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+{% if messages %}
+{% for m in messages %}
+<script>
+  Swal.fire({
+    "title": "Felicitaciones",
+    "text": "{{m}}",
+    "icon": "success"
+  })
+
+</script>
+{% endfor %}
+{% endif %}
 
     <!-- --FIN MODAL--------->
     <!-- Bootstrap-->

@@ -37,16 +37,16 @@
           {% csrf_token %}
 
           {{ form | crispy }}
-          
+
           <br>
-        <div class="d-flex justify-content-end">
-          <input type="submit" class="btn btn-success" value="Enviar">
-          &nbsp;
-          &nbsp;
-          <input type="reset" class="btn btn-danger" value="Limpiar">
-        
-        </div> 
-          
+          <div class="d-flex justify-content-end">
+            <input type="submit" class="btn btn-success" value="Enviar">
+            &nbsp;
+            &nbsp;
+            <input type="reset" class="btn btn-danger" value="Limpiar">
+
+          </div>
+
         </form>
         <br>
         {{mensaje}}
@@ -63,5 +63,7 @@
 <!-- Footer -->
 {% include 'Footer.html'%}
 <!-- Footer FIN-->
+
+
 
 </html>

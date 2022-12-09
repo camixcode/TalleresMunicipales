@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .form import MaterialForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
+from django.shortcuts import redirect, render
 
 from core.models import Material
 
@@ -57,12 +58,14 @@ def crear_Material(request):
         'form': MaterialForm()
     }
     if request.method == 'POST':
-        formulario = MaterialForm(request.POST, request.FILES)
+        formmulario = MaterialForm(request.POST)
+        if formmulario.is_valid:
+            formmulario.save()
+            messages.success(request,"Material registrado correctamente")
+            datos['mensaje'] = "Guardados Correctamente"
+            return redirect(to="Admin_General")
 
-        if formulario.is_valid():
-            formulario.save()
-            datos['mensaje'] = "Datos Guardados Correctamente"
-    return render(request, 'core/crear_Material.html', datos)
+    return render(request, 'core/Crear_Material.html',datos)          
 
 
 def Admin_Perfil(request):
