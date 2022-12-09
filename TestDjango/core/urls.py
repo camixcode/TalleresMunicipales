@@ -1,5 +1,5 @@
 from django.urls import path
-from.views import Admin_General, Admin_Taller, registro,crear_Taller, home, Form_Inscripcion_Taller, Form_Instructor_Taller,Ins_Taller,Form_Evaluacion,crear_Material, Admin_Perfil, Admin_Muni, Admin_Postulacion, Admin_Pago, Admin_Cliente,Admin_Banner_Promocion,Admin_Instructor, Tus_Talleres,Modificar_Material,Eliminar_Material
+from.views import Admin_General, Admin_Taller, EvaluarPostulacion,registro,crear_Taller, home, Form_Inscripcion_Taller, Form_Instructor_Taller,Ins_Taller,Form_Evaluacion,crear_Material, Admin_Perfil, Admin_Muni, Admin_Postulacion, Admin_Pago, Admin_Cliente,Admin_Banner_Promocion,Admin_Instructor, Tus_Talleres,Modificar_Material,Eliminar_Material
 
 urlpatterns = [
     path('', home, name="home"),
@@ -22,7 +22,7 @@ urlpatterns = [
     path('TusTalleres', Tus_Talleres,name="Tus_Talleres"),
     path('Modificar_Material/<id>/', Modificar_Material, name="Modificar_Material"),
     path('Eliminar_Material/<id>/',Eliminar_Material, name="form_borrar_producto"),
-    path('EvaluarPostulacion/<id>/', Admin_Postulacion,name="Admin_Postulacion"),
+    path('EvaluarPostulacion/<id>/', EvaluarPostulacion,name="EvaluarPostulacion"),
 
     path('registro',registro, name="registro"),
 

@@ -187,7 +187,7 @@ def registro (request):
         data["form"] = formulario
     return render(request, 'registration/registro.html',data)
 
-def evaluarPosulacion(request, id):
+def EvaluarPostulacion(request, id):
         postulacionInstr = PostulacionInstr.objects.get(idPostulacion=id)
         postulacionInstr.estado = "Aceptada"
         postulacionInstr = PostulacionInstr.objects.all()
