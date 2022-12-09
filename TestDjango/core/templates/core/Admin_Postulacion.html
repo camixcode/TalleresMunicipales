@@ -68,25 +68,37 @@
                                     <th style="width:30%;">Apellido Postulante</th>
                                     <th style="width:15%;">Rut</th>
                                     <th style="width:15%;">Correo</th>
-                                    <th style="width:10%;">Opciones</th>
+                                    <th style="width:15%;">Direccion</th>
+                                    <th style="width:15%;">Estado</th>
+                                    <th style="width:15%;">Evaluar</th>
+
+
+
+                                    
 
                                 </tr>
                             </thead>
                             <tbody>
                             
+                                {% for ps in postulacion %}
                                 <tr>
-                                    <td>1</td>
-                                    <td>Yerko </td>
-                                    <td>Vazques</td>
-                                    <td>1231321-7</td>
-                                    <td>yerko@gmail.com</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-primary"><i
-                                                class="fa-solid fa-pencil"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i
-                                                class="fa-solid fa-trash-can"></i></button>
-                                    </td>
+                                    <td>{{ps.idPostulacion}}</td>
+                                    <td>{{ps.nombres}}</td>
+                                    <td>{{ps.apellidos}}</td>
+                                    <td>{{ps.rut}}</td>
+                                    <td>{{ps.correo}}</td>
+                                    <td>{{ps.direccion}}</td>
+                                    <td>{{ps.estado}}</td>
+                                    <td><button type="button" class="btn btn-primary">Evaluar</button>
+                                    </button></td>
+
+
+
+
+
+
                                 </tr>
+                                {% endfor %}
                             
                             </tbody>
                         </table>

@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from .form import MaterialForm, CustomerUserCreationForm
+from .form import MaterialForm, CustomerUserCreationForm, PostulacionInstrForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.shortcuts import redirect, render
 
-from core.models import Material
+from core.models import Material, PostulacionInstr
 
 # Create your views here.
 
@@ -18,7 +18,18 @@ def Form_Inscripcion_Taller(request):
 
 
 def Form_Instructor_Taller(request):
-    return render(request, 'core/Form_Instructor_Taller.html')
+    datos = {
+        'form': PostulacionInstrForm()
+    }
+    if request.method == 'POST':
+        formmulario = PostulacionInstrForm(request.POST)
+        if formmulario.is_valid:
+            formmulario.save()
+            messages.success(request,"Postulacion enviada correctamente")
+            datos['mensaje'] = "Guardados Correctamente"
+            return redirect(to="home")
+
+    return render(request, 'core/Form_Instructor_Taller.html',datos)        
 
 
 def Ins_Taller(request):
@@ -93,9 +104,9 @@ def Admin_Pago(request):
 
 
 def Admin_Postulacion(request):
-    material = Material.objects.all()
+    postulacion = PostulacionInstr.objects.all()
     datos = {
-        'material': material
+        'postulacion': postulacion
     }
     return render(request, 'core/Admin_Postulacion.html', datos)
 
@@ -159,7 +170,7 @@ def Eliminar_Material(request, id):
         datos = {
             'material': material
         }
-        return render(request, 'core/Admin_General.html', datos)
+        return render(request, 'core/home.html', datos)
 
 def registro (request):
     data ={
