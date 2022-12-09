@@ -25,7 +25,7 @@ def Form_Instructor_Taller(request):
         formmulario = PostulacionInstrForm(request.POST)
         if formmulario.is_valid:
             formmulario.save()
-            messages.success(request,"Material registrado correctamente")
+            messages.success(request,"Postulación registrada correctamente")
             datos['mensaje'] = "Guardados Correctamente"
             return redirect(to="home")
 
@@ -154,7 +154,8 @@ def Modificar_Material(request, id):
         if formulario.is_valid():
             formulario.save()
             messages.success(request, "Producto modificado correctamente")
-            datos = {
+            return redirect(to="Admin_General")
+        datos = {
                 'form': MaterialForm(instance=material),
                 'mensaje': "Modificado corretamente"
             }
@@ -166,7 +167,7 @@ def Eliminar_Material(request, id):
         material = Material.objects.get(idMaterial=id)
         material.delete()
         material = Material.objects.all()
-        messages.success(request, "Usuario eliminado correctamente")
+        messages.success(request, "Material eliminado correctamente")
         datos = {
             'material': material
         }
@@ -189,7 +190,7 @@ def registro (request):
 
 def EvaluarPostulacion(request, id):
         postulacionInstr = PostulacionInstr.objects.get(idPostulacion=id)
-        postulacionInstr.estado = "Aceptada"
+        postulacionInstr.estado = "Aceptar"
         postulacionInstr = PostulacionInstr.objects.all()
         messages.success(request, "Postulacion Evaluada correctamente")
         datos = {

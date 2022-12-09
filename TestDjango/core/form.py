@@ -21,7 +21,6 @@ class PostulacionInstrForm (forms.ModelForm):
         model = PostulacionInstr
         fields = ("idPostulacion","nombres","apellidos","correo","direccion","rut")
 
-
     def clean(self):
         print(self.cleaned_data)
         return self.cleaned_data

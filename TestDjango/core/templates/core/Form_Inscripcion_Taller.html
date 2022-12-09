@@ -21,11 +21,13 @@
     {% endblock %}
     <!-- FIN NAV -->
     <!-- LEYENDA -->
-    <div class="container-md my-3 rounded" style="background-color: rgb(254, 126, 126)">
+    <div class="container-md my-3 rounded" style="font-family: 'Poppins', sans-serif; 
+    background: #e4321a;
+    background: linear-gradient(to right, #f7aa77, #ff760d, #f7aa77); ">
 
         <p class="text-md-center text-light fs-3" >Participa en los Taller que hemos preparado para ti!!!</p>
         <hr>
-        <p class="text-md-center text-light fs-6 " >Completa el formulario y te informaremos el resultado</p>
+        <p class="text-md-center text-light fs-4 " >Completa el formulario y te informaremos el resultado</p>
     </div>
     <!-- FIN LEYENDA -->
 <!-- ----------------------- -->
@@ -33,36 +35,35 @@
     <div class="container-md my-5">
         <form class="row g-3">
             <div class="col-md-12">
-              <label for="validationDefault01" class="form-label">Nombre</label>
+              <label for="validationDefault01" class="form-label"><h5>Nombre</h5></label>
               <input type="text" class="form-control" id="validationDefault01" value="" required>
             </div>
             <div class="col-md-12">
-              <label for="validationDefault02" class="form-label">Apellido</label>
+              <label for="validationDefault02" class="form-label"><h5>Apellido</h5></label>
               <input type="text" class="form-control" id="validationDefault02" value="" required>
             </div>
             <div class="col-md-12">
-              <label for="validationDefaultUsername" class="form-label">Correo</label>
+              <label for="validationDefaultUsername" class="form-label"><h5>Correo</h5></label>
               <div class="input-group">
-                <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                <span class="input-group-text" id="inputGroupPrepend2"><h5>@</h5></span>
                 <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
               </div>
             </div>
             <div class="col-md-12">
-              <label for="validationDefault03" class="form-label">Comuna</label>
+              <label for="validationDefault03" class="form-label"><h5>Comuna</h5></label>
               <input type="text" class="form-control" id="validationDefault03" required>
             </div>
             
             <div class="col-md-12 position-relative">
-                <label for="validationTooltip05" class="form-label">Selecciona un taller</label>
+                <label for="validationTooltip05" class="form-label"><h5>Selecciona un taller</h5></label>
                 <select class="form-select" id="validationTooltip04" required>
-                  <option selected  value="">Yoga</option>
-                  <option selected  value="">Lectura</option>
-                  <option selected  value="">Computación</option>
-                  <option selected  value="">...</option>
-                  
+                  <option selected  value=""><h5></h5>Yoga</option>
+                  <option selected  value=""><h5>Lectura</h5></option>
+                  <option selected  value=""><h5>Computación</h5></option>
+                  <option selected  value=""><h5>...</h5></option>       
                 </select>
                 <div class="invalid-tooltip">
-                  Please select a valid state.
+                  Debes seleccionar un taller
                 </div>
               </div>
             
@@ -74,7 +75,7 @@
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
                   <label class="form-check-label" for="invalidCheck2">
-                    Acepto las condiciones y privacidad
+                   <h5>Acepto las condiciones y privacidad</h5> 
                   </label>
                 </div>
               </div>

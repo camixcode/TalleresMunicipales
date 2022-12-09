@@ -14,10 +14,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    {% block content %}
-    {% include 'Navbar.html'%}
-    {% endblock %}
+
+
+
 </head>
+
 
 <body>
   <!-- TITULO -->
@@ -25,7 +26,7 @@
     <div class=" rounded container-fluid  text-black pd-2" style="font-family: 'Poppins', sans-serif; 
     background: #e4321a;
     background: linear-gradient(to right, #f7aa77, #ff760d, #f7aa77); ">
-      <p class="text-md-center text-light fs-3">Postulacion a instructor</p>
+      <p class="text-md-center text-light fs-3">Postulación a instructor</p>
     </div>
   </div>
   <!-- FIN TITULO -->
@@ -34,30 +35,32 @@
   <div class="container my-4">
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-
         <form action="" method="post">
-
           {% csrf_token %}
-
           {{ form | crispy }}
 
           <br>
-          <div class="d-flex justify-content-end">
-            <input type="submit" class="btn btn-success" value="Enviar">
-            &nbsp;
-            &nbsp;
-            <input type="reset" class="btn btn-danger" value="Limpiar">
-
+          <div class="input-group">
+            <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+            <!-- <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Button</button> -->
           </div>
-
+          <br>
+          <!-- <div class="d-flex justify-content-end"> -->
+          <div class="d-grid gap-2">
+            <input type="submit" class="btn btn-success" value="Enviar Postulación">
+            <!-- &nbsp;
+            &nbsp; -->
+            <input type="reset" class="btn btn-warning" value="Limpiar Formulario">
+          </div>
         </form>
         <br>
         {{mensaje}}
         <br><br><br>
-        <div class="d-grid gap-2">
-          <a href="{%url 'Admin_General'%}" class="btn btn-primary" role="button" data-bs-toggle="button"
-            aria-pressed="true"><i class="fa-sharp fa-solid fa-arrow-left"></i> Volver a Administrador de Material</a>
+        <div class="d-flex justify-content-end">
+          <a href="{%url 'home'%}" class="btn btn-primary" role="button" data-bs-toggle="button"
+            aria-pressed="true"><i class="fa-sharp fa-solid fa-arrow-left"></i> Volver a Pagina Principal</a>
         </div>
+
       </div>
     </div>
   </div>
@@ -66,7 +69,5 @@
 <!-- Footer -->
 {% include 'Footer.html'%}
 <!-- Footer FIN-->
-
-
 
 </html>

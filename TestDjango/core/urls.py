@@ -9,7 +9,7 @@ urlpatterns = [
     path('PostularTaller/',Ins_Taller, name="Ins_Taller"),
     path('AdministradorTaller/',Admin_Taller, name="Admin_Taller"),
     path('Form_Evaluacion/',Form_Evaluacion, name="Form_Evaluacion"),
-    path('AdministardorGeneral', Admin_General,name="Admin_General"),
+    path('AdministradorGeneral', Admin_General,name="Admin_General"),
     path('crearTaller', crear_Taller,name="crear_Taller"),
     path('CrearMaterial', crear_Material,name="crear_Material"),
     path('AdminPerfilesUsuarios', Admin_Perfil,name="Admin_Perfil"),
@@ -23,12 +23,6 @@ urlpatterns = [
     path('Modificar_Material/<id>/', Modificar_Material, name="Modificar_Material"),
     path('Eliminar_Material/<id>/',Eliminar_Material, name="form_borrar_producto"),
     path('EvaluarPostulacion/<id>/', EvaluarPostulacion,name="EvaluarPostulacion"),
-
     path('registro',registro, name="registro"),
-
-
-
-
-
 ]
 
