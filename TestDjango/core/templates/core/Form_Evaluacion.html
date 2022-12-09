@@ -27,103 +27,109 @@
     <!-- ----------------------- -->
     <!-- Grilla -->
     <!-- Texto -->
-    <div class="container my-3" style="background-color: rgb(254, 126, 126)">
+    <div class="container my-3" style="font-family: 'Poppins', sans-serif; 
+    background: #e4321a;
+    background: linear-gradient(to right, #f7aa77, #ff760d, #f7aa77); ">
         <p class="text-md-center text-light fs-3">Evaluación de Talleres</p>
     </div>
 
     <!-- --Card Evaluación--------->
-    <div class="container-md">
-    
-    <div class="col-12"><br>
-        <div class="card">
-            <div class="card-header">
-                <h2>Evaluación de Taller</h2>
-            </div>
-            <div class="card-body">
-                <div class="col-12">
-                    <table class="table" id="tabla_evaluacion">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>#</th>
-                                <th>Nombre Instructor</th>
-                                <th>Taller</th>
-                                <th>Evaluación</th>
-                                <th>Acción</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Camila Castro</td>
-                                <td>Taller de Lectura</td>
-                                <td>
-                                    <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
-                                        id="1e"></span>
-                                    <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
-                                        id="2e"></span>
-                                    <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
-                                        id="3e"></span>
-                                    <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
-                                        id="4e"></span>
-                                    <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
-                                        id="5e"></span><br>
-                                </td>
-                                <td>
-                                    <button class="btn btn-primary" onclick="Mensaje()">Enviar</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Diego Araya</td>
-                                <td>Taller de Yoga</td>
-                                <td>
-                                    <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
-                                        id="1ee"></span>
-                                    <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
-                                        id="2ee"></span>
-                                    <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
-                                        id="3ee"></span>
-                                    <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
-                                        id="4ee"></span>
-                                    <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
-                                        id="5ee"></span><br>
-                                </td>
-                                <td>
-                                    <button class="btn btn-primary" onclick="Mensaje()">Enviar</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Yerko Vásquez</td>
-                                <td>Taller de Pintura</td>
-                                <td>
-                                    <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
-                                        id="1es"></span>
-                                    <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
-                                        id="2es"></span>
-                                    <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
-                                        id="3es"></span>
-                                    <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
-                                        id="4es"></span>
-                                    <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
-                                        id="5es"></span><br>
-                                </td>
-                                <td>
-                                    <button class="btn btn-primary" onclick="Mensaje()">Enviar</button>
-                                </td>
-                            </tr>
+    <div class="container my-3" style="font-family: 'Poppins', sans-serif;">
+        <div class="container-md">
+            <div class="col-12"><br>
+                <div class="card">
+                    <!-- <div class="card-header">
+                        <h2>Evaluación de Taller</h2>
+                    </div> -->
+                    <div class="card-body">
+                        <div class="col-12">
+                            <table class="table table-striped dt-responsive" id="tabla_evaluacion">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th><h4>ID</h4></th>
+                                        <th><h4>Nombre Instructor</h4></th>
+                                        <th><h4>Taller</h4></th>
+                                        <th><h4>Evaluación</h4></th>
+                                        <th><h4>Acción</h4></th>
 
-                        </tbody>
-                    </table>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><h5>1</h5></td>
+                                        <td><h5>Camila Castro</h5></td>
+                                        <td><h5>Taller de Lectura</h5></td>
+                                        <td>
+                                            <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
+                                                id="1e"></span>
+                                            <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
+                                                id="2e"></span>
+                                            <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
+                                                id="3e"></span>
+                                            <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
+                                                id="4e"></span>
+                                            <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
+                                                id="5e"></span><br>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-primary" onclick="Mensaje()">Enviar</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h5>2</h5></td>
+                                        <td><h5>Diego Araya</h5></td>
+                                        <td><h5>Taller de Yoga</h5></td>
+                                        <td>
+                                            <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
+                                                id="1ee"></span>
+                                            <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
+                                                id="2ee"></span>
+                                            <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
+                                                id="3ee"></span>
+                                            <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
+                                                id="4ee"></span>
+                                            <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
+                                                id="5ee"></span><br>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-primary" onclick="Mensaje()">Enviar</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h5>3</h5></td>
+                                        <td><h5>Yerko Vásquez</h5></td>
+                                        <td><h5>Taller de Pintura</h5></td>
+                                        <td>
+                                            <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
+                                                id="1es"></span>
+                                            <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
+                                                id="2es"></span>
+                                            <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
+                                                id="3es"></span>
+                                            <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
+                                                id="4es"></span>
+                                            <span class="fa fa-star" onclick="evaluacion(this)" style="cursor: pointer;"
+                                                id="5es"></span><br>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-primary" onclick="Mensaje()">Enviar</button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
 
                 </div>
-
             </div>
-
         </div>
     </div>
-    </div>
+
+
     <script>
         var contador;
         function evaluacion(item) {

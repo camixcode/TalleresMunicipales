@@ -36,6 +36,11 @@
     .right {
         text-align: right !important;
     }
+
+.a {
+    text-decoration: none !important;
+    }
+
 </Style>
 
 <body>
@@ -67,10 +72,11 @@
     <!-- ----------------------- -->
 
     <!-- BOTON AGREGAR TALLER -->
+    <br>
     <div class="container my-3" style="background-color: rgb(254, 126, 126)">
         <p class="text-md-center text-light fs-3"> Lista de Postulaciones</p>
     </div>
-    <br><br><br>
+    <br>
 
     <!-- TABLA -->
     <div class="container md-4"> 
@@ -89,7 +95,7 @@
                                     <th style="width:20%;">Correo</th>
                                     <th style="width:30%;">Direccion</th>
                                     <!-- <th style="width:15%;">Estado</th> -->
-                                    <th style="width:15%;">Evaluar</th>
+                                    <th style="width:5%;">Evaluar</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -105,10 +111,9 @@
                                     <!-- <td>{{ps.estado}}</td> -->
                                     <td>
                                     <!-- <button type="button" class="btn btn-primary" onclick="evaluarPostulacion({{ps.idPostulacion}})">Evaluar
-                                    </button> 
-                                http://127.0.0.1:8000/Modificar_Material/{{mt.idMaterial}}-->
-                                    <button class="btn btn-primary">
-                                        <a href="http://127.0.0.1:8000/Validar_Postulacion/{{ps.idPostulacion}}">
+                                    </button>-->
+                                    <button class="btn btn-success">
+                                        <a class="a" href="http://127.0.0.1:8000/Validar_Postulacion/{{ps.idPostulacion}}">
                                             <i class="fa-solid fa-pencil" style="color: aliceblue"></i>
                                         </a>
                                     </button>      

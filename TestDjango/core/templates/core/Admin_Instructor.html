@@ -26,15 +26,19 @@
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- NAV -->
-    {% block content %}
-    {% include 'Navbar.html'%}
-    {% endblock %}
-    <!-- FIN NAV -->
+
+            {% block content %}
+            {% include 'Navbar.html'%}
+            {% endblock %}
+
 </head>
+
 <Style>
     .right {
         text-align: right !important;
+    }
+    .a {
+        text-decoration: none !important;
     }
 </Style>
 
@@ -42,16 +46,16 @@
     <!-- ----------------------- -->
 
     <!-- BOTON AGREGAR TALLER -->
+    <br>
     <div class="container my-3" style="background-color: rgb(254, 126, 126)">
-        <p class="text-md-center text-light fs-3"><i class="fa-sharp fa-solid fa-magnifying-glass"></i>     Lista de Instructores</p>
+        <p class="text-md-center text-light fs-3">Lista de Instructores</p>
     </div>
-    <div class="container my-3">
+    <div class="container">
         <div class="right">
-            <button class="btn btn-sm btn-primary"><a class="text-md-center text-light fs-6"
-                    href="{%url 'crear_Material'%}">  Agregar Instructor</a> <i
-                    class="fa-sharp fa-solid fa-plus fa fa-align-left"></i></button>
+            <button class="btn btn-sm btn-success"><a class="a text-md-center text-light fs-5"  href="{%url 'crear_Material'%}"> Agregar Instructor </a></button>
         </div>
     </div>
+    <br><br>
     <!-- FIN BOTON AGREGAR TALLER ----------------------- -->
     <!-- TABLA -->
     <div class="container md-4"> 

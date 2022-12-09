@@ -18,7 +18,7 @@ class MaterialForm (forms.ModelForm):
 class PostulacionInstrForm (forms.ModelForm):
     class Meta:
         model = PostulacionInstr
-        fields = ("idPostulacion","nombres","apellidos","correo","direccion","rut", "estado")
+        fields = ("idPostulacion","nombres","apellidos","correo","direccion","rut", "taller", "descripcion")
     def clean(self):
         print(self.cleaned_data)
         return self.cleaned_data

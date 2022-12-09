@@ -36,22 +36,26 @@
     .right {
         text-align: right !important;
     }
+    .a{
+        text-decoration: none !important;
+    }
 </Style>
 
 <body>
     <!-- ----------------------- -->
 
     <!-- BOTON AGREGAR TALLER -->
+    <br>
     <div class="container my-3" style="background-color: rgb(254, 126, 126)">
-        <p class="text-md-center text-light fs-3"><i class="fa-sharp fa-solid fa-magnifying-glass"></i>     Lista de Talleres</p>
+        <p class="text-md-center text-light fs-3">Lista de Talleres</p>
     </div>
-    <div class="container my-3">
+    <div class="container">
         <div class="right">
-            <button class="btn btn-sm btn-primary"><a class="text-md-center text-light fs-6"
-                    href="{%url 'crear_Material'%}">  Agregar Taller</a> <i
-                    class="fa-sharp fa-solid fa-plus fa fa-align-left"></i></button>
+            <button class="btn btn-sm btn-success"><a class="a text-md-center text-light fs-5" 
+                    href="#">  Agregar Taller</a></button>
         </div>
     </div>
+    <br>
     <!-- FIN BOTON AGREGAR TALLER ----------------------- -->
     <!-- TABLA -->
     <div class="container md-4"> 
@@ -64,14 +68,12 @@
                             <thead>
                                 <tr>
                                     <th style="width:5%;">ID</th>
-                                    <th style="width:35%;">Nombre Taller</th>
-                                    <th style="width:30%;">Descripcion</th>
-                                    <th style="width:15%;">Fecha Inicion</th>
+                                    <th style="width:15%;">Nombre Taller</th>
+                                    <th style="width:25%;">Descripcion</th>
+                                    <th style="width:10%;">Fecha Inicio</th>
                                     <th style="width:15%;">Fecha Termino</th>
-                                    <th style="width:15%;">Sala</th>
+                                    <th style="width:5%;">Sala</th>
                                     <th style="width:15%;">Instructor</th>
-
-
                                     <th style="width:10%;">Opciones</th>
                                 </tr>
                             </thead>
@@ -85,7 +87,7 @@
                                     <td>30/11/2022</td>
                                     <td>30/12/2022</td>
                                     <td>517</td>
-                                    <td>Juan Perez</td>
+                                    <td>Juan Pérez</td>
 
                                     <td>
                                         <button class="btn btn-sm btn-primary"><i
