@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .form import MaterialForm, CustomerUserCreationForm
+from .form import MaterialForm, CustomerUserCreationForm,PostulacionInstrForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.shortcuts import redirect, render
@@ -18,7 +18,18 @@ def Form_Inscripcion_Taller(request):
 
 
 def Form_Instructor_Taller(request):
-    return render(request, 'core/Form_Instructor_Taller.html')
+    datos = {
+        'form':PostulacionInstrForm()
+    }
+    if request.method == 'POST':
+        formmulario = PostulacionInstrForm(request.POST)
+        if formmulario.is_valid:
+            formmulario.save()
+            messages.success(request,"Material registrado correctamente")
+            datos['mensaje'] = "Guardados Correctamente"
+            return redirect(to="home")
+
+    return render(request, 'core/Form_Instructor_Taller.html',datos)
 
 
 def Ins_Taller(request):
@@ -178,6 +189,7 @@ def registro (request):
 
 def evaluarPosulacion(request, id):
         postulacionInstr = PostulacionInstr.objects.get(idPostulacion=id)
+        postulacionInstr.estado = "Aceptada"
         postulacionInstr = PostulacionInstr.objects.all()
         messages.success(request, "Postulacion Evaluada correctamente")
         datos = {

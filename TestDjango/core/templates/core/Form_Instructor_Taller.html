@@ -1,87 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
 {% load static %}
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- css Formulario -->
-    <link rel="stylesheet" href="{% static 'core/css/Formulario.css'%}">
-
-    <title>Inscripcion como Instructor</title>
-
-</head>
-
-<body>
-    <!-- NAV -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postulacion a instructor</title>
+  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     {% block content %}
     {% include 'Navbar.html'%}
     {% endblock %}
-    <!-- FIN NAV -->
-    <!-- LEYENDA -->
-    <div class="container-md my-3 rounded" style="background-color: rgb(254, 126, 126)">
+</head>
 
-        <p class="text-md-center text-light fs-3" >Participa y se parte de nuestros equipos de lideres de Taller!</p>
-        <hr>
-        <p class="text-md-center text-light fs-6 " >Completa el formulario y te informaremos el resultado</p>
+<body>
+  <!-- TITULO -->
+  <div class="container my-4">
+    <div class=" rounded container-fluid  text-black pd-2" style="font-family: 'Poppins', sans-serif; 
+    background: #e4321a;
+    background: linear-gradient(to right, #f7aa77, #ff760d, #f7aa77); ">
+      <p class="text-md-center text-light fs-3">Postulacion a isntructor</p>
     </div>
-    <!-- FIN LEYENDA -->
-<!-- ----------------------- -->
-    <!-- FORMULARIO -->
-    <div class="container-md my-5">
-        <form class="row g-3">
-            <div class="col-md-12">
-              <label for="validationDefault01" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="validationDefault01" value="" required>
-            </div>
-            <div class="col-md-12">
-              <label for="validationDefault02" class="form-label">Apellido</label>
-              <input type="text" class="form-control" id="validationDefault02" value="" required>
-            </div>
-            <div class="col-md-12">
-              <label for="validationDefaultUsername" class="form-label">Correo</label>
-              <div class="input-group">
-                <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <label for="validationDefault03" class="form-label">Comuna</label>
-              <input type="text" class="form-control" id="validationDefault03" required>
-            </div>
-            
+  </div>
+  <!-- FIN TITULO -->
+  {% load crispy_forms_tags %}
+  <!-- FORMULARIO -->
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
-            <div class="mb-3">
-                <input type="file" class="form-control" aria-label="file example" required>
-                <div class="invalid-feedback">Example invalid form file feedback</div>
-              </div>
-            <div class="col-12">
-              <button class="btn btn-primary" type="submit">Envíar</button>
-            </div>
-            <div class="col-12">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                  <label class="form-check-label" for="invalidCheck2">
-                    Acepto las condiciones y privacidad
-                  </label>
-                </div>
-              </div>
-          </form>
-    
+        <form action="" method="post">
+
+          {% csrf_token %}
+
+          {{ form | crispy }}
+
+          <br>
+          <div class="d-flex justify-content-end">
+            <input type="submit" class="btn btn-success" value="Enviar">
+            &nbsp;
+            &nbsp;
+            <input type="reset" class="btn btn-danger" value="Limpiar">
+
+          </div>
+
+        </form>
+        <br>
+        {{mensaje}}
+        <br><br><br>
+        <div class="d-grid gap-2">
+          <a href="{%url 'Admin_General'%}" class="btn btn-primary" role="button" data-bs-toggle="button"
+            aria-pressed="true"><i class="fa-sharp fa-solid fa-arrow-left"></i> Volver a Administrador de Material</a>
+        </div>
+      </div>
     </div>
-    
-    <!-- FIN FORMULARIO -->
-    <!-- ----------------------- -->
-
-    <!-- Footer -->
-    {% include 'Footer.html'%}
-    <!-- Footer FIN-->
-    <!-- ----------------------- -->
-        <!-- JS BOOTSTRAP -->
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+  </div>
 </body>
+<!-- FIN FORMULARIO -->
+<!-- Footer -->
+{% include 'Footer.html'%}
+<!-- Footer FIN-->
+
+
 
 </html>
