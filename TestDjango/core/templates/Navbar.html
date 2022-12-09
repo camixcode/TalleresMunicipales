@@ -64,7 +64,7 @@ style="font-family: 'Poppins', sans-serif; background: #e4a71a;background: linea
                         <p class="text-md-center text-black fs-4" >Perfil</p>
                         </a>
                         <ul class="dropdown-menu" style="font-family: 'Poppins', sans-serif; background: #e4a71a;background: linear-gradient(to right, #aca4a0, #c0b9b2, #aca4a0)">
-                            <li><a class="dropdown-item" href="#"><p class="text-md-center text-black fs-5" >Evaluar Taller</p></a></li>
+                            <li><a class="dropdown-item" href="{% url 'Admin_Postulacion'%}"><p class="text-md-center text-black fs-5" >Evaluar Taller</p></a></li>
                         </ul>
                     </li>
                     {% if user.is_superuser %}

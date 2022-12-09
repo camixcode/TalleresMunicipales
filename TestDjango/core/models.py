@@ -11,3 +11,28 @@ class Material(models.Model):
 
     def __str__(self):
         return self.nombreMaterial
+
+
+class PostulacionInstr(models.Model):
+    idPostulacion = models.AutoField(primary_key=True, verbose_name='Id de postulacion')
+    nombres = models.CharField(max_length=50, verbose_name='Nombre de postulante')
+    apellidos = models.CharField(max_length=50, verbose_name='Apellido de postulante')
+    correo = models.CharField(max_length=50, verbose_name='Correo de postulante')
+    direccion = models.CharField(max_length=50, verbose_name='Direccion de postulante')
+    rut = models.CharField(max_length=50, verbose_name='rut de postulante')
+    estado = models.CharField(max_length=50, verbose_name='estado de postulante')
+
+    def __str__(self):
+        return self.nombres
+
+class Instructor(models.Model):
+    idInstructor = models.AutoField(primary_key=True, verbose_name='Id de instructor')
+    nombres = models.CharField(max_length=50, verbose_name='Nombre de instructor')
+    apellidos = models.CharField(max_length=50, verbose_name='Apellido de instructor')
+    correo = models.CharField(max_length=50, verbose_name='Correo de instructor')
+    direccion = models.CharField(max_length=50, verbose_name='Direccion de instructor')
+    rut = models.CharField(max_length=50, verbose_name='rut de instructor')
+    estado = models.CharField(max_length=50, verbose_name='estado de instructor')
+
+    def __str__(self):
+        return self.nombres
