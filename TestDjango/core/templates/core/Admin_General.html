@@ -37,6 +37,29 @@
         text-align: right !important;
     }
 </Style>
+{% block js %}
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function eliminarMaterial(id){
+    Swal.fire({
+        "title":"¿Estas Seguro?",
+        "text":"Esta accion no se puede deshacer",
+        "icon":"question",
+        "showCancelButton":true,
+        "cancelButtonText":"No, cancelar",
+        "confirmButtonText":"Si, eliminar",
+        "reverseButtons":true,
+        "confirmButtonColor":"#dc3545"
+    })
+    .then(function(result){
+        if(result.isConfirmed){
+            window.location.href= "http://127.0.0.1:8000/Eliminar_Material/"+id+"/"
+        }
+    })
+}
+</script>
+{% endblock %}
 
 <body>
     <!-- ----------------------- -->
@@ -78,10 +101,8 @@
                                     <td>{{mt.descripcionMaterial}}</td>
                                     <td>{{mt.stock}}</td>
                                     <td>
-                                        <button class="btn btn-sm btn-primary"><i
-                                                class="fa-solid fa-pencil"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i
-                                                class="fa-solid fa-trash-can"></i></button>
+                                        <a href="http://127.0.0.1:8000/Modificar_Material/{{mt.idMaterial}}">Modificar</a>                                        
+                                        <a href="#" onclick="eliminarMaterial({{mt.idMaterial}})">Eliminar</a>
                                     </td>
                                 </tr>
                                 {% endfor %}
@@ -92,6 +113,8 @@
             </div>
         </div>
     </div>
+
+    
     <br>
     <!-- TABLE FIN-->
     <!-- ----------------------- -->
