@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.shortcuts import redirect, render
 
-from core.models import Material
+from core.models import Material,PostulacionInstr
 
 # Create your views here.
 
@@ -93,9 +93,9 @@ def Admin_Pago(request):
 
 
 def Admin_Postulacion(request):
-    material = Material.objects.all()
+    postulacion = PostulacionInstr.objects.all()
     datos = {
-        'material': material
+        'postulacion': postulacion
     }
     return render(request, 'core/Admin_Postulacion.html', datos)
 
