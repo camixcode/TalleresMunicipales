@@ -41,23 +41,23 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-    function eliminarMaterial(id){
-    Swal.fire({
-        "title":"¿Estas Seguro?",
-        "text":"Esta accion no se puede deshacer",
-        "icon":"question",
-        "showCancelButton":true,
-        "cancelButtonText":"No, cancelar",
-        "confirmButtonText":"Si, eliminar",
-        "reverseButtons":true,
-        "confirmButtonColor":"#dc3545"
-    })
-    .then(function(result){
-        if(result.isConfirmed){
-            window.location.href= "http://127.0.0.1:8000/Eliminar_Material/"+id+"/"
-        }
-    })
-}
+    function eliminarMaterial(id) {
+        Swal.fire({
+            "title": "¿Estas Seguro?",
+            "text": "Esta accion no se puede deshacer",
+            "icon": "question",
+            "showCancelButton": true,
+            "cancelButtonText": "No, cancelar",
+            "confirmButtonText": "Si, eliminar",
+            "reverseButtons": true,
+            "confirmButtonColor": "#dc3545"
+        })
+            .then(function (result) {
+                if (result.isConfirmed) {
+                    window.location.href = "http://127.0.0.1:8000/Eliminar_Material/" + id + "/"
+                }
+            })
+    }
 </script>
 {% endblock %}
 
@@ -66,31 +66,31 @@
 
     <!-- BOTON AGREGAR TALLER -->
     <div class="container my-3" style="background-color: rgb(254, 126, 126)">
-        <p class="text-md-center text-light fs-3"><i class="fa-sharp fa-solid fa-magnifying-glass"></i>     Lista de Materiales</p>
+        <p class="text-md-center text-light fs-3"><i class="fa-sharp fa-solid fa-magnifying-glass"></i> Lista de
+            Materiales</p>
     </div>
     <div class="container my-3">
         <div class="right">
             <button class="btn btn-sm btn-primary"><a class="text-md-center text-light fs-6"
-                    href="{%url 'crear_Material'%}">  Agregar Material</a> <i
+                    href="{%url 'crear_Material'%}"> Agregar Material</a> <i
                     class="fa-sharp fa-solid fa-plus fa fa-align-left"></i></button>
         </div>
     </div>
     <!-- FIN BOTON AGREGAR TALLER ----------------------- -->
     <!-- TABLA -->
-    <div class="container md-4"> 
+    <div class="container md-4">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="title">
                     <div class="table-responsive">
-                        <table class="table table-striped dt-responsive" style="width:100%;"
-                            id="myTable">
+                        <table class="table table-striped dt-responsive" style="width:100%;" id="myTable">
                             <thead>
                                 <tr>
                                     <th style="width:5%;">ID</th>
-                                    <th style="width:30%;">Nombre Material</th>
-                                    <th style="width:30%;">Descripcion Material</th>
+                                    <th style="width:35%;">Nombre Material</th>
+                                    <th style="width:35%;">Descripcion Material</th>
                                     <th style="width:5%;">Stock</th>
-                                    <th style="width:15%;">Acciones</th>
+                                    <th style="width:5%;">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -101,13 +101,19 @@
                                     <td>{{mt.descripcionMaterial}}</td>
                                     <td>{{mt.stock}}</td>
                                     <td>
-                                        <button class="btn btn-success">
-                                            <a href="http://127.0.0.1:8000/Modificar_Material/{{mt.idMaterial}}"><p class="text-md-center text-light fs-6" >Modificar</p></a>
+                                        <button class="btn btn-sm btn-primary">
+                                            <a href="http://127.0.0.1:8000/Modificar_Material/{{mt.idMaterial}}">
+                                                <i class="fa-solid fa-pencil" style="color: aliceblue"></i>
+                                            </a>
                                         </button>
-                                        <button class="btn btn-warning">
-                                            <a href="#" onclick="eliminarMaterial({{mt.idMaterial}})"><p class="text-md-center text-dark fs-6" >Eliminar</p></a>
-                                        </button>                                        
-                                        
+                                        <button class="btn btn-sm btn-danger">
+                                            <a href="{%url 'Admin_General'%}"
+                                                onclick="eliminarMaterial({{mt.idMaterial}})">
+                                                <i
+                                                class="fa-solid fa-trash-can" style="color: aliceblue"></i>
+                                            </a>
+                                        </button>
+
                                     </td>
                                 </tr>
                                 {% endfor %}
@@ -119,7 +125,7 @@
         </div>
     </div>
 
-    
+
     <br>
     <!-- TABLE FIN-->
     <!-- ----------------------- -->
@@ -146,18 +152,18 @@
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-{% if messages %}
-{% for m in messages %}
-<script>
-  Swal.fire({
-    "title": "Felicitaciones",
-    "text": "{{m}}",
-    "icon": "success"
-  })
+    {% if messages %}
+    {% for m in messages %}
+    <script>
+        Swal.fire({
+            "title": "Felicitaciones",
+            "text": "{{m}}",
+            "icon": "success"
+        })
 
-</script>
-{% endfor %}
-{% endif %}
+    </script>
+    {% endfor %}
+    {% endif %}
 
     <!-- --FIN MODAL--------->
     <!-- Bootstrap-->
