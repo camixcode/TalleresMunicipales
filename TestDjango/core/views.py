@@ -170,7 +170,7 @@ def Eliminar_Material(request, id):
         datos = {
             'material': material
         }
-        return render(request, 'core/home.html', datos)
+        return render(request, 'core/Admin_General.html', datos)
 
 def registro (request):
     data ={
