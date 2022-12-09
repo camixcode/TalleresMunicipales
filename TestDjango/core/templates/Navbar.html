@@ -47,13 +47,13 @@ style="font-family: 'Poppins', sans-serif; background: #e4a71a;background: linea
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="nav nav-tabs me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#"><p class="text-md-center text-black fs-4" >Pagina Principa</p></a>
+                        <a class="nav-link" aria-current="page" href="{% url 'home' %}"><p class="text-md-center text-black fs-4" >Pagina Principa</p></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#"><p class="text-md-center text-black fs-4" >Se parte de nuestro Equipo</p></a>
+                        <a class="nav-link" aria-current="page" href="{% url 'Form_Instructor_Taller' %}"><p class="text-md-center text-black fs-4" >Se parte de nuestro Equipo</p></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#"><p class="text-md-center text-black fs-4" >Postula a los Talleres</p></a>
+                        <a class="nav-link" aria-current="page" href="{% url 'Form_Inscripcion_Taller' %}"><p class="text-md-center text-black fs-4" >Postula a los Talleres</p></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a 
@@ -80,40 +80,40 @@ style="font-family: 'Poppins', sans-serif; background: #e4a71a;background: linea
                             
 
                             <li>
-                                <a class="dropdown-item" href="#"><p class="text-md-center text-black fs-5" >Administrar banner promoción</p></a>
+                                <a class="dropdown-item" href="{% url 'Admin_Banner'%}"><p class="text-md-center text-black fs-5" >Administrar banner promoción</p></a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="Admin_Instructor"><p class="text-md-center text-black fs-5" >Administrar instructor</p></a></li>
+                            <li><a class="dropdown-item" href="{% url 'Admin_Instructor'%}"><p class="text-md-center text-black fs-5" >Administrar instructor</p></a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="Admin_Cliente"><p class="text-md-center text-black fs-5" >Administrar tercera edad</p></a></li>
+                            <li><a class="dropdown-item" href="{% url 'Admin_Cliente'%}"><p class="text-md-center text-black fs-5" >Administrar tercera edad</p></a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="Admin_Postulacion"><p class="text-md-center text-black fs-5" >Administrar postulación</p></a></li>
+                            <li><a class="dropdown-item" href="{% url 'Admin_Postulacion'%}"><p class="text-md-center text-black fs-5" >Administrar postulación</p></a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="Admin_Pago"><p class="text-md-center text-black fs-5" >Administrar pago</p></a></li>
+                            <li><a class="dropdown-item" href="{% url 'Admin_Pago'%}"><p class="text-md-center text-black fs-5" >Administrar pago</p></a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="AdministardorGeneral"><p class="text-md-center text-black fs-5" >Administrar material</p></a></li>
+                            <li><a class="dropdown-item" href="{% url 'Admin_General'%}"><p class="text-md-center text-black fs-5" >Administrar material</p></a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="Admin_Muni"><p class="text-md-center text-black fs-5" >Administrar municipio</p></a></li>
+                            <li><a class="dropdown-item" href="{% url 'Admin_Muni'%}"><p class="text-md-center text-black fs-5" >Administrar municipio</p></a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="Admin__Perfil"><p class="text-md-center text-black fs-5" >Administrar perfiles</p></a></li>
+                            <li><a class="dropdown-item" href="{% url 'Admin_Perfil' %}"><p class="text-md-center text-black fs-5" >Administrar perfiles</p></a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="Admin_Taller"><p class="text-md-center text-black fs-5" >Administrar taller</p></a></li>
+                            <li><a class="dropdown-item" href="{% url 'Tus_Talleres' %}"><p class="text-md-center text-black fs-5" >Administrar taller</p></a></li>
                         </ul>
                     </li>
                     {% endif %}

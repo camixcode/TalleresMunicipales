@@ -3,6 +3,7 @@ from.views import Admin_General, Admin_Taller, registro,crear_Taller, home, Form
 
 urlpatterns = [
     path('', home, name="home"),
+    path('home', home, name="home"),
     path('Form_Inscripcion_Taller/', Form_Inscripcion_Taller, name="Form_Inscripcion_Taller"),
     path('Form_Instructor_Taller/', Form_Instructor_Taller, name="Form_Instructor_Taller"),
     path('PostularTaller/',Ins_Taller, name="Ins_Taller"),
