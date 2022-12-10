@@ -3,7 +3,7 @@ from .form import MaterialForm, CustomerUserCreationForm,PostulacionInstrForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.shortcuts import redirect, render
-
+from django.core.mail import EmailMessage
 from core.models import Material,PostulacionInstr
 
 # Create your views here.
@@ -194,7 +194,20 @@ def Validar_Postulacion(request, id):
             postulacionInstr.save()
             formulario.save()
             messages.success(request, "Postulacion aceptada correctamente")
+            nombre=postulacionInstr.nombres+" "+postulacionInstr.apellidos
+            email=postulacionInstr.correo
+            print(email)
+            contenido="Prueba"
+
+            email=EmailMessage("Mensaje de app Django",
+            "El usuario con nombre {} con la dirección {} escribe lo siguiente:\n\n {}".format(nombre, email, contenido), 
+            '',
+            [email], 
+            reply_to=[email])
+
+            email.send()
             return redirect(to="Admin_Postulacion")
+            
         datos = {
                 'form': PostulacionInstrForm(instance=postulacionInstr),
                 'mensaje': "Correo envíado correctamente"
