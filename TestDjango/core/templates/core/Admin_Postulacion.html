@@ -43,6 +43,30 @@
 
 </Style>
 
+{% block js %}
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function evaluarPostulacion(id) {
+        Swal.fire({
+            "title": "¿Estas Seguro?",
+            "text": "Esta accion no se puede deshacer",
+            "icon": "question",
+            "showCancelButton": true,
+            "cancelButtonText": "No, cancelar",
+            "confirmButtonText": "Si, eliminar",
+            "reverseButtons": true,
+            "confirmButtonColor": "#dc3545"
+        })
+            .then(function (result) {
+                if (result.isConfirmed) {
+                    window.location.href = "http://127.0.0.1:8000/EvaluarPostulacion/" + id + "/"
+                }
+            })
+    }
+</script>
+{% endblock %}
+
 <body>
 
     <!-- ----------------------- -->
@@ -72,6 +96,7 @@
                                     <th style="width:30%;">Direccion</th>
                                     <th style="width:15%;">Estado</th> 
                                     <th style="width:5%;">Evaluar</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -92,8 +117,16 @@
                                         <a class="a" href="http://127.0.0.1:8000/Validar_Postulacion/{{ps.idPostulacion}}">
                                             <i class="fa-solid fa-pencil" style="color: aliceblue"></i>
                                         </a>
-                                    </button>      
+                                    </button>
+                                        
                                     </td>
+                                    <td><button class="btn btn-danger">
+                                        <a href="#"
+                                            onclick="evaluarPostulacion({{ps.idPostulacion}})">
+                                            <i
+                                            class="fa-solid fa-trash-can" style="color: aliceblue"></i>
+                                        </a>
+                                    </button>  </td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
@@ -177,18 +210,18 @@
         });
     </script>
 
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-{% if messages %}
-    {% for m in messages %}
-        <script>
-                Swal.fire({
-                    "title": "Felicitaciones",
-                    "text": "{{m}}",
-                    "icon": "success"
-                    })
-        </script>
-    {% endfor %}
-{% endif %}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        {% if messages %}
+            {% for m in messages %}
+                <script>
+                        Swal.fire({
+                            "title": "Felicitaciones",
+                            "text": "{{m}}",
+                            "icon": "success"
+                            })
+                </script>
+            {% endfor %}
+        {% endif %}
 </body>
 
 

@@ -152,6 +152,19 @@ def Eliminar_Material(request, id):
         }
         return render(request, 'core/Admin_General.html', datos)
 
+def EvaluarPostulacion(request, id):
+        postulacionInstr = PostulacionInstr.objects.get(idPostulacion=id)
+        postulacionInstr.estado = "Rechazada"
+        postulacionInstr.save()
+        postulacionInstr = PostulacionInstr.objects.all()
+        messages.success(request, "Postulacion Evaluada correctamente")
+        datos = {
+            'postulacionInstr': postulacionInstr
+        }
+        return redirect(to="Admin_Postulacion")
+        return render(request, 'core/Admin_Postulacion.html', datos)
+
+
 def Modificar_Material(request, id):
     material = Material.objects.get(idMaterial=id)
     datos = {
@@ -204,13 +217,3 @@ def registro (request):
         data["form"] = formulario
     return render(request, 'registration/registro.html',data)
 
-def EvaluarPostulacion(request, id):
-        postulacionInstr = PostulacionInstr.objects.get(idPostulacion=id)
-        postulacionInstr.estado = "Aceptar"
-        postulacionInstr.save()
-        postulacionInstr = PostulacionInstr.objects.all()
-        messages.success(request, "Postulacion Evaluada correctamente")
-        datos = {
-            'postulacionInstr': postulacionInstr
-        }
-        return render(request, 'core/Admin_Postulacion.html', datos)
