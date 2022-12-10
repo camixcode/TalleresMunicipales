@@ -20,12 +20,14 @@ class PostulacionInstr(models.Model):
     correo = models.CharField(max_length=50, verbose_name='Correo de postulante')
     direccion = models.CharField(max_length=50, verbose_name='Direccion de postulante')
     rut = models.CharField(max_length=50, verbose_name='rut de postulante')
-    estado = models.CharField(max_length=50, verbose_name='estado de postulante')
+    estado = models.CharField(max_length=50, verbose_name='estado de postulante',default="Pendiente")
     taller = models.CharField(max_length=50, verbose_name='Nombre de taller')
     descripcion = models.CharField(max_length=100, verbose_name='Breve descripción del taller')
-
+    
     def __str__(self):
         return self.nombresci
+
+
 
 class Instructor(models.Model):
     idInstructor = models.AutoField(primary_key=True, verbose_name='Id de instructor')

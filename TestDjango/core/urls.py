@@ -22,7 +22,7 @@ urlpatterns = [
     path('TusTalleres', Tus_Talleres,name="Tus_Talleres"),
     path('Modificar_Material/<id>/', Modificar_Material, name="Modificar_Material"),
     path('Eliminar_Material/<id>/',Eliminar_Material, name="form_borrar_producto"),
-    # path('EvaluarPostulacion/<id>/', EvaluarPostulacion,name="EvaluarPostulacion"),
+    path('EvaluarPostulacion/<id>/', EvaluarPostulacion,name="EvaluarPostulacion"),
     path('registro',registro, name="registro"),
     path('Validar_Postulacion/<id>/',Validar_Postulacion, name="Validar_Postulacion")
 

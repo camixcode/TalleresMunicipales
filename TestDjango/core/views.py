@@ -177,6 +177,8 @@ def Validar_Postulacion(request, id):
     if request.method == 'POST':
         formulario = PostulacionInstrForm(data=request.POST, instance=postulacionInstr)
         if formulario.is_valid():
+            postulacionInstr.estado="aceptada"
+            postulacionInstr.save()
             formulario.save()
             messages.success(request, "Postulacion aceptada correctamente")
             return redirect(to="Admin_Postulacion")
@@ -205,6 +207,7 @@ def registro (request):
 def EvaluarPostulacion(request, id):
         postulacionInstr = PostulacionInstr.objects.get(idPostulacion=id)
         postulacionInstr.estado = "Aceptar"
+        postulacionInstr.save()
         postulacionInstr = PostulacionInstr.objects.all()
         messages.success(request, "Postulacion Evaluada correctamente")
         datos = {

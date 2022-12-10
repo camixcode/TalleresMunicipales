@@ -45,30 +45,6 @@
 
 <body>
 
-    {% block js %}
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
-    <script>
-        function evaluarPostulacion(id){
-        Swal.fire({
-            "title":"¿Deseas aceptar o rechazar al postulante?",
-            "text":"Se enviará un correo con la respuesta a la casilla que indica la portulación",
-            "icon":"question",
-            "showCancelButton":true,
-            "cancelButtonText":"Rechazar",
-            "confirmButtonText":"Aceptar",
-            "reverseButtons":true,
-            "confirmButtonColor":"#dc3545"
-        })
-        .then(function(result){
-            if(result.isConfirmed){
-                // window.location.href= "http://127.0.0.1:8000/EvaluarPostulacion/" + id + "/"
-                window.location.href= "http://127.0.0.1:8000/AdminPostulacion"
-            }
-        })
-    }
-    </script>
-    {% endblock %}
     <!-- ----------------------- -->
 
     <!-- BOTON AGREGAR TALLER -->
@@ -94,7 +70,7 @@
                                     <th style="width:10%;">Rut</th>
                                     <th style="width:20%;">Correo</th>
                                     <th style="width:30%;">Direccion</th>
-                                    <!-- <th style="width:15%;">Estado</th> -->
+                                    <th style="width:15%;">Estado</th> 
                                     <th style="width:5%;">Evaluar</th>
                                 </tr>
                             </thead>
@@ -108,7 +84,7 @@
                                     <td>{{ps.rut}}</td>
                                     <td>{{ps.correo}}</td>
                                     <td>{{ps.direccion}}</td>
-                                    <!-- <td>{{ps.estado}}</td> -->
+                                    <td>{{ps.estado}}</td>
                                     <td>
                                     <!-- <button type="button" class="btn btn-primary" onclick="evaluarPostulacion({{ps.idPostulacion}})">Evaluar
                                     </button>-->
