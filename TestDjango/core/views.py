@@ -197,10 +197,13 @@ def Validar_Postulacion(request, id):
             nombre=postulacionInstr.nombres+" "+postulacionInstr.apellidos
             email=postulacionInstr.correo
             print(email)
-            contenido="Prueba"
+            contenido="¡¡¡Le informamos que su postulación fue aceptada!!!\n\n Para continuar con el proceso, dirigase a nuestras oficinas en:\n  Av. Concha y Toro 1820, 8152857 Puente Alto, Región Metropolitana. \n\n\n ¡Estamos anciosos de trabajar junto a con! \n\n\n Atte.,\n Dirección de Recuersos Humanos. \n Puente Alto."
 
+            # email=EmailMessage("Mensaje de app Django",
+            # "Estimad@ {} con la dirección {} escribe lo siguiente:\n\n {}".format(nombre, email, contenido), 
+            # '',
             email=EmailMessage("Mensaje de app Django",
-            "El usuario con nombre {} con la dirección {} escribe lo siguiente:\n\n {}".format(nombre, email, contenido), 
+            "Hola! {} :\n\n {}".format(nombre, contenido), 
             '',
             [email], 
             reply_to=[email])

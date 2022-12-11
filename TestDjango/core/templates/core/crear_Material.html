@@ -33,11 +33,12 @@
       <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
         <form action="" method="post">
+          
 
           {% csrf_token %}
-
+          
           {{ form | crispy }}
-
+          
           <br>
           <div class="d-flex justify-content-end">
             <input type="submit" class="btn btn-success" value="Enviar">
