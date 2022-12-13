@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .form import MaterialForm, CustomerUserCreationForm, PostulacionInstrForm
+from .form import MaterialForm, CustomerUserCreationForm, PostulacionInstrForm, CrearCuentaAdmin
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.shortcuts import redirect, render
@@ -294,3 +294,17 @@ def Ver_Material(request, id):
             'mensaje': "Modificado correctamente"
         }
     return render(request, 'core/Ver_Material.html',datos)
+
+
+def Registro_Cuenta_Admin(request):
+    data = {
+        'form': CrearCuentaAdmin
+    }
+    if request.method == 'POST':
+        formulario = CrearCuentaAdmin(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Cuenta creada correctamente")
+            return redirect(to="home")
+        data["form"] = formulario
+    return render(request, 'core/Registro_Cuenta_Admin.html', data)
