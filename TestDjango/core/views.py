@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from .form import MaterialForm, CustomerUserCreationForm,PostulacionInstrForm
+from .form import MaterialForm, CustomerUserCreationForm, PostulacionInstrForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.core.mail import EmailMessage
-from core.models import Material,PostulacionInstr
+from core.models import Material, PostulacionInstr
 
 # Create your views here.
 
@@ -19,17 +19,17 @@ def Form_Inscripcion_Taller(request):
 
 def Form_Instructor_Taller(request):
     datos = {
-        'form':PostulacionInstrForm()
+        'form': PostulacionInstrForm()
     }
     if request.method == 'POST':
         formmulario = PostulacionInstrForm(request.POST)
         if formmulario.is_valid:
             formmulario.save()
-            messages.success(request,"Postulación registrada correctamente")
+            messages.success(request, "Postulación registrada correctamente")
             datos['mensaje'] = "Guardados Correctamente"
             return redirect(to="home")
 
-    return render(request, 'core/Form_Instructor_Taller.html',datos)
+    return render(request, 'core/Form_Instructor_Taller.html', datos)
 
 
 def Ins_Taller(request):
@@ -72,11 +72,11 @@ def crear_Material(request):
         formmulario = MaterialForm(request.POST)
         if formmulario.is_valid:
             formmulario.save()
-            messages.success(request,"Material registrado correctamente")
+            messages.success(request, "Material registrado correctamente")
             datos['mensaje'] = "Guardados Correctamente"
             return redirect(to="Admin_General")
 
-    return render(request, 'core/Crear_Material.html',datos)          
+    return render(request, 'core/Crear_Material.html', datos)
 
 
 def Admin_Perfil(request):
@@ -142,27 +142,53 @@ def Tus_Talleres(request):
     }
     return render(request, 'core/Tus_Talleres.html', datos)
 
+
 def Eliminar_Material(request, id):
-        material = Material.objects.get(idMaterial=id)
-        material.delete()
-        material = Material.objects.all()
-        messages.success(request, "Material eliminado correctamente")
-        datos = {
-            'material': material
-        }
-        return render(request, 'core/Admin_General.html', datos)
+    material = Material.objects.get(idMaterial=id)
+    material.delete()
+    material = Material.objects.all()
+    messages.success(request, "Material eliminado correctamente")
+    datos = {
+        'material': material
+    }
+    return render(request, 'core/Admin_General.html', datos)
+
 
 def EvaluarPostulacion(request, id):
-        postulacionInstr = PostulacionInstr.objects.get(idPostulacion=id)
-        postulacionInstr.estado = "Rechazada"
-        postulacionInstr.save()
-        postulacionInstr = PostulacionInstr.objects.all()
-        messages.success(request, "Postulacion Evaluada correctamente")
-        datos = {
-            'postulacionInstr': postulacionInstr
-        }
-        return redirect(to="Admin_Postulacion")
-        return render(request, 'core/Admin_Postulacion.html', datos)
+    postulacionInstr = PostulacionInstr.objects.get(idPostulacion=id)
+    postulacionInstr.estado = "Rechazada"
+    postulacionInstr.save()
+    postulacionInstr = PostulacionInstr.objects.all()
+    messages.success(request, "Postulacion Evaluada correctamente")
+    datos = {
+        'postulacionInstr': postulacionInstr
+    }
+    return redirect(to="Admin_Postulacion")
+    return render(request, 'core/Admin_Postulacion.html', datos)
+
+
+def AceptarPostulacion(request, id):
+    postulacionInstr = PostulacionInstr.objects.get(idPostulacion=id)
+    postulacionInstr.estado = "Aceptada"
+    postulacionInstr.save()
+    nombre = postulacionInstr.nombres+" "+postulacionInstr.apellidos
+    email = postulacionInstr.correo
+    print(email)
+    contenido = "¡¡¡Le informamos que su postulación fue aceptada!!!\n\n Para continuar con el proceso, dirigase a nuestras oficinas en:\n  Av. Concha y Toro 1820, 8152857 Puente Alto, Región Metropolitana. \n\n\n ¡Estamos anciosos de trabajar junto a con! \n\n\n Atte.,\n Dirección de Recuersos Humanos. \n Puente Alto."
+    email = EmailMessage("Municipalidad de Puente Alto",
+                         "Hola! {} :\n\n {}".format(nombre, contenido),
+                         '',
+                         [email],
+                         reply_to=[email])
+
+    email.send()
+    postulacionInstr = PostulacionInstr.objects.all()
+    messages.success(request, "Postulacion Evaluada correctamente")
+    datos = {
+        'postulacionInstr': postulacionInstr
+    }
+    return redirect(to="Admin_Postulacion")
+    return render(request, 'core/Admin_Postulacion.html', datos)
 
 
 def Modificar_Material(request, id):
@@ -177,10 +203,11 @@ def Modificar_Material(request, id):
             messages.success(request, "Producto modificado correctamente")
             return redirect(to="Admin_General")
         datos = {
-                'form': MaterialForm(instance=material),
-                'mensaje': "Modificado correctamente"
-            }
+            'form': MaterialForm(instance=material),
+            'mensaje': "Modificado correctamente"
+        }
     return render(request, 'core/Modificar_Material.html', datos)
+
 
 def Validar_Postulacion(request, id):
     postulacionInstr = PostulacionInstr.objects.get(idPostulacion=id)
@@ -188,48 +215,49 @@ def Validar_Postulacion(request, id):
         'form': PostulacionInstrForm(instance=postulacionInstr)
     }
     if request.method == 'POST':
-        formulario = PostulacionInstrForm(data=request.POST, instance=postulacionInstr)
+        formulario = PostulacionInstrForm(
+            data=request.POST, instance=postulacionInstr)
         if formulario.is_valid():
-            postulacionInstr.estado="aceptada"
+            postulacionInstr.estado = "aceptada"
             postulacionInstr.save()
             formulario.save()
             messages.success(request, "Postulacion aceptada correctamente")
-            nombre=postulacionInstr.nombres+" "+postulacionInstr.apellidos
-            email=postulacionInstr.correo
+            nombre = postulacionInstr.nombres+" "+postulacionInstr.apellidos
+            email = postulacionInstr.correo
             print(email)
-            contenido="¡¡¡Le informamos que su postulación fue aceptada!!!\n\n Para continuar con el proceso, dirigase a nuestras oficinas en:\n  Av. Concha y Toro 1820, 8152857 Puente Alto, Región Metropolitana. \n\n\n ¡Estamos anciosos de trabajar junto a con! \n\n\n Atte.,\n Dirección de Recuersos Humanos. \n Puente Alto."
+            contenido = "¡¡¡Le informamos que su postulación fue aceptada!!!\n\n Para continuar con el proceso, dirigase a nuestras oficinas en:\n  Av. Concha y Toro 1820, 8152857 Puente Alto, Región Metropolitana. \n\n\n ¡Estamos anciosos de trabajar junto a con! \n\n\n Atte.,\n Dirección de Recuersos Humanos. \n Puente Alto."
 
             # email=EmailMessage("Mensaje de app Django",
-            # "Estimad@ {} con la dirección {} escribe lo siguiente:\n\n {}".format(nombre, email, contenido), 
+            # "Estimad@ {} con la dirección {} escribe lo siguiente:\n\n {}".format(nombre, email, contenido),
             # '',
-            email=EmailMessage("Mensaje de app Django",
-            "Hola! {} :\n\n {}".format(nombre, contenido), 
-            '',
-            [email], 
-            reply_to=[email])
+            email = EmailMessage("Mensaje de app Django",
+                                 "Hola! {} :\n\n {}".format(nombre, contenido),
+                                 '',
+                                 [email],
+                                 reply_to=[email])
 
             email.send()
             return redirect(to="Admin_Postulacion")
-            
+
         datos = {
-                'form': PostulacionInstrForm(instance=postulacionInstr),
-                'mensaje': "Correo envíado correctamente"
-                }     
-    return render(request, 'core/Validar_Postulacion.html', datos)    
+            'form': PostulacionInstrForm(instance=postulacionInstr),
+            'mensaje': "Correo envíado correctamente"
+        }
+    return render(request, 'core/Validar_Postulacion.html', datos)
 
 
-def registro (request):
-    data ={
-        'form':CustomerUserCreationForm
+def registro(request):
+    data = {
+        'form': CustomerUserCreationForm
     }
-    if request.method =='POST':
-        formulario = CustomerUserCreationForm(data= request.POST)
+    if request.method == 'POST':
+        formulario = CustomerUserCreationForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request,"Te has registrado correctamente")
-            user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
-            login(request,user)
+            messages.success(request, "Te has registrado correctamente")
+            user = authenticate(
+                username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
+            login(request, user)
             return redirect(to="home")
         data["form"] = formulario
-    return render(request, 'registration/registro.html',data)
-
+    return render(request, 'registration/registro.html', data)

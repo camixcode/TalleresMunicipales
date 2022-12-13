@@ -67,9 +67,6 @@
 {% block js %}
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
-
-
 <script>
     function evaluarPostulacion(id) {
         Swal.fire({
@@ -85,6 +82,27 @@
             .then(function (result) {
                 if (result.isConfirmed) {
                     window.location.href = "http://127.0.0.1:8000/EvaluarPostulacion/" + id + "/"
+                }
+            })
+    }
+</script>
+
+
+<script>
+    function aceptarPostulacion(id) {
+        Swal.fire({
+            "title": "¿Deceas Aceptar la postulación?",
+            "text": "Envíaras un correo al postulante con el rechazo de su postulación",
+            "icon": "question",
+            "showCancelButton": true,
+            "cancelButtonText": "No, cancelar",
+            "confirmButtonText": "Si, Aceptar",
+            "reverseButtons": true,
+            "confirmButtonColor": "#dc3545"
+        })
+            .then(function (result) {
+                if (result.isConfirmed) {
+                    window.location.href = "http://127.0.0.1:8000/AceptarPostulacion/" + id + "/"
                 }
             })
     }
@@ -147,7 +165,9 @@
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <button class="btn btn-success">
-                                                <i class="fa-sharp fa-solid fa-check"></i>
+                                                <a href="#" onclick="aceptarPostulacion({{ps.idPostulacion}})">
+                                                <i class="fa-sharp fa-solid fa-check" style="color: aliceblue"></i>
+                                            </a>
                                             </button>
                                         </div> 
                                     </td>  
