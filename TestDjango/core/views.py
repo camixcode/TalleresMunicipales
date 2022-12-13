@@ -26,6 +26,16 @@ def Form_Instructor_Taller(request):
         if formmulario.is_valid:
             formmulario.save()
             messages.success(request, "Postulación registrada correctamente")
+            nombre = formmulario.cleaned_data['nombres']+formmulario.cleaned_data['apellidos']
+            email = formmulario.cleaned_data['correo']
+            print(email)
+            contenido = "¡¡¡Le informamos que su postulación fue aceptada!!!\n\n Para continuar con el proceso, dirigase a nuestras oficinas en:\n  Av. Concha y Toro 1820, 8152857 Puente Alto, Región Metropolitana. \n\n\n ¡Estamos anciosos de trabajar junto a con! \n\n\n Atte.,\n Dirección de Recuersos Humanos. \n Puente Alto."
+            email = EmailMessage("Municipalidad de Puente Alto",
+                                 "Hola! {} :\n\n {}".format(nombre, contenido),
+                                 '',
+                                 [email],
+                                 reply_to=[email])
+            email.send()
             datos['mensaje'] = "Guardados Correctamente"
             return redirect(to="home")
 
@@ -158,13 +168,22 @@ def EvaluarPostulacion(request, id):
     postulacionInstr = PostulacionInstr.objects.get(idPostulacion=id)
     postulacionInstr.estado = "Rechazada"
     postulacionInstr.save()
+    nombre = postulacionInstr.nombres+" "+postulacionInstr.apellidos
+    email = postulacionInstr.correo
+    print(email)
+    contenido = "¡¡¡Le informamos que su postulación fue rechazada!!!\n\n Para continuar con el proceso, dirigase a nuestras oficinas en:\n  Av. Concha y Toro 1820, 8152857 Puente Alto, Región Metropolitana. \n\n\n ¡Estamos anciosos de trabajar junto a con! \n\n\n Atte.,\n Dirección de Recuersos Humanos. \n Puente Alto."
+    email = EmailMessage("Municipalidad de Puente Alto",
+                         "Hola! {} :\n\n {}".format(nombre, contenido),
+                         '',
+                         [email],
+                         reply_to=[email])
+    email.send()
     postulacionInstr = PostulacionInstr.objects.all()
     messages.success(request, "Postulacion Evaluada correctamente")
     datos = {
         'postulacionInstr': postulacionInstr
     }
     return redirect(to="Admin_Postulacion")
-    return render(request, 'core/Admin_Postulacion.html', datos)
 
 
 def AceptarPostulacion(request, id):
@@ -180,15 +199,10 @@ def AceptarPostulacion(request, id):
                          '',
                          [email],
                          reply_to=[email])
-
     email.send()
     postulacionInstr = PostulacionInstr.objects.all()
     messages.success(request, "Postulacion Evaluada correctamente")
-    datos = {
-        'postulacionInstr': postulacionInstr
-    }
     return redirect(to="Admin_Postulacion")
-    return render(request, 'core/Admin_Postulacion.html', datos)
 
 
 def Modificar_Material(request, id):
