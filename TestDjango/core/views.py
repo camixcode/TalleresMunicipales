@@ -308,3 +308,5 @@ def Registro_Cuenta_Admin(request):
             return redirect(to="home")
         data["form"] = formulario
     return render(request, 'core/Registro_Cuenta_Admin.html', data)
+
+
