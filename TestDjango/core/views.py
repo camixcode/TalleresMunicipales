@@ -26,10 +26,10 @@ def Form_Instructor_Taller(request):
         if formmulario.is_valid:
             formmulario.save()
             messages.success(request, "Postulación registrada correctamente")
-            nombre = formmulario.cleaned_data['nombres']+formmulario.cleaned_data['apellidos']
+            nombre = formmulario.cleaned_data['nombres']+ formmulario.cleaned_data['apellidos']
             email = formmulario.cleaned_data['correo']
             print(email)
-            contenido = "¡¡¡Le informamos que su postulación fue aceptada!!!\n\n Para continuar con el proceso, dirigase a nuestras oficinas en:\n  Av. Concha y Toro 1820, 8152857 Puente Alto, Región Metropolitana. \n\n\n ¡Estamos anciosos de trabajar junto a con! \n\n\n Atte.,\n Dirección de Recuersos Humanos. \n Puente Alto."
+            contenido = "Su postulación fue envíada correctamente, en un plazo máximo de 36horas responderemos a su solicitud.\n\n\n Atte.,\n Dirección de Recuersos Humanos. \n Puente Alto."
             email = EmailMessage("Municipalidad de Puente Alto",
                                  "Hola! {} :\n\n {}".format(nombre, contenido),
                                  '',
@@ -171,7 +171,7 @@ def EvaluarPostulacion(request, id):
     nombre = postulacionInstr.nombres+" "+postulacionInstr.apellidos
     email = postulacionInstr.correo
     print(email)
-    contenido = "¡¡¡Le informamos que su postulación fue rechazada!!!\n\n Para continuar con el proceso, dirigase a nuestras oficinas en:\n  Av. Concha y Toro 1820, 8152857 Puente Alto, Región Metropolitana. \n\n\n ¡Estamos anciosos de trabajar junto a con! \n\n\n Atte.,\n Dirección de Recuersos Humanos. \n Puente Alto."
+    contenido = "Junto con saludar, le informamos que su postulacion en esta oportunidad fue rechazada"
     email = EmailMessage("Municipalidad de Puente Alto",
                          "Hola! {} :\n\n {}".format(nombre, contenido),
                          '',
@@ -193,7 +193,7 @@ def AceptarPostulacion(request, id):
     nombre = postulacionInstr.nombres+" "+postulacionInstr.apellidos
     email = postulacionInstr.correo
     print(email)
-    contenido = "¡¡¡Le informamos que su postulación fue aceptada!!!\n\n Para continuar con el proceso, dirigase a nuestras oficinas en:\n  Av. Concha y Toro 1820, 8152857 Puente Alto, Región Metropolitana. \n\n\n ¡Estamos anciosos de trabajar junto a con! \n\n\n Atte.,\n Dirección de Recuersos Humanos. \n Puente Alto."
+    contenido = "¡¡¡Le informamos que su postulación fue aceptada!!!\n\n Para continuar con el proceso, dirigase a nuestras oficinas en:\n  Av. Concha y Toro 1820, 8152857 Puente Alto, Región Metropolitana. \n\n\n ¡Estamos anciosos de trabajar trabajar con usted! \n\n\n Atte.,\n Dirección de Recuersos Humanos. \n Puente Alto."
     email = EmailMessage("Municipalidad de Puente Alto",
                          "Hola! {} :\n\n {}".format(nombre, contenido),
                          '',
