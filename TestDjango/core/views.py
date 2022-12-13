@@ -29,7 +29,8 @@ def Form_Instructor_Taller(request):
             nombre = formmulario.cleaned_data['nombres']+ formmulario.cleaned_data['apellidos']
             email = formmulario.cleaned_data['correo']
             print(email)
-            contenido = "Su postulación fue envíada correctamente, en un plazo máximo de 36horas responderemos a su solicitud.\n\n\n Atte.,\n Dirección de Recuersos Humanos. \n Puente Alto."
+            contenido = "Su postulación como instructor fue enviada correctamente, en un plazo máximo de 36 horas responderemos a su solicitud.\n\n\n Atte.,\n Dirección de Recursos Humanos. \n Puente Alto." 
+            
             email = EmailMessage("Municipalidad de Puente Alto",
                                  "Hola! {} :\n\n {}".format(nombre, contenido),
                                  '',
@@ -171,7 +172,7 @@ def EvaluarPostulacion(request, id):
     nombre = postulacionInstr.nombres+" "+postulacionInstr.apellidos
     email = postulacionInstr.correo
     print(email)
-    contenido = "Junto con saludar, le informamos que su postulacion en esta oportunidad fue rechazada"
+    contenido = "Junto con saludar, le informamos que su postulación en esta oportunidad no fue aprobada.\n\n\n Atte.,\n Dirección de Recursos Humanos. \n Puente Alto."
     email = EmailMessage("Municipalidad de Puente Alto",
                          "Hola! {} :\n\n {}".format(nombre, contenido),
                          '',
@@ -179,7 +180,7 @@ def EvaluarPostulacion(request, id):
                          reply_to=[email])
     email.send()
     postulacionInstr = PostulacionInstr.objects.all()
-    messages.success(request, "Postulacion Evaluada correctamente")
+    messages.success(request, "Postulación no aprobada correctamente")
     datos = {
         'postulacionInstr': postulacionInstr
     }
@@ -193,7 +194,7 @@ def AceptarPostulacion(request, id):
     nombre = postulacionInstr.nombres+" "+postulacionInstr.apellidos
     email = postulacionInstr.correo
     print(email)
-    contenido = "¡¡¡Le informamos que su postulación fue aceptada!!!\n\n Para continuar con el proceso, dirigase a nuestras oficinas en:\n  Av. Concha y Toro 1820, 8152857 Puente Alto, Región Metropolitana. \n\n\n ¡Estamos anciosos de trabajar trabajar con usted! \n\n\n Atte.,\n Dirección de Recuersos Humanos. \n Puente Alto."
+    contenido = "¡¡¡Le informamos que su postulación fue aceptada!!!\n\n Para continuar con el proceso, dirigase a nuestras oficinas en:\n  Av. Concha y Toro 1820, 8152857 Puente Alto, Región Metropolitana. \n\n\n ¡Estamos ansiosos de trabajar trabajar con usted! \n\n\n Atte.,\n Dirección de Recursos Humanos. \n Puente Alto."
     email = EmailMessage("Municipalidad de Puente Alto",
                          "Hola! {} :\n\n {}".format(nombre, contenido),
                          '',
@@ -201,7 +202,7 @@ def AceptarPostulacion(request, id):
                          reply_to=[email])
     email.send()
     postulacionInstr = PostulacionInstr.objects.all()
-    messages.success(request, "Postulacion Evaluada correctamente")
+    messages.success(request, "Postulación evaluada correctamente")
     return redirect(to="Admin_Postulacion")
 
 
@@ -235,11 +236,11 @@ def Validar_Postulacion(request, id):
             postulacionInstr.estado = "aceptada"
             postulacionInstr.save()
             formulario.save()
-            messages.success(request, "Postulacion aceptada correctamente")
+            messages.success(request, "Postulación aceptada")
             nombre = postulacionInstr.nombres+" "+postulacionInstr.apellidos
             email = postulacionInstr.correo
             print(email)
-            contenido = "¡¡¡Le informamos que su postulación fue aceptada!!!\n\n Para continuar con el proceso, dirigase a nuestras oficinas en:\n  Av. Concha y Toro 1820, 8152857 Puente Alto, Región Metropolitana. \n\n\n ¡Estamos anciosos de trabajar junto a con! \n\n\n Atte.,\n Dirección de Recuersos Humanos. \n Puente Alto."
+            contenido = "¡¡¡Le informamos que su postulación fue aceptada!!!\n\n Para continuar con el proceso, dirigase a nuestras oficinas en:\n  Av. Concha y Toro 1820, 8152857 Puente Alto, Región Metropolitana. \n\n\n ¡Estamos ansiosos de trabajar trabajar con usted! \n\n\n Atte.,\n Dirección de Recursos Humanos. \n Puente Alto."
 
             # email=EmailMessage("Mensaje de app Django",
             # "Estimad@ {} con la dirección {} escribe lo siguiente:\n\n {}".format(nombre, email, contenido),
@@ -255,7 +256,7 @@ def Validar_Postulacion(request, id):
 
         datos = {
             'form': PostulacionInstrForm(instance=postulacionInstr),
-            'mensaje': "Correo envíado correctamente"
+            'mensaje': "Correo enviado correctamente"
         }
     return render(request, 'core/Validar_Postulacion.html', datos)
 
@@ -275,3 +276,21 @@ def registro(request):
             return redirect(to="home")
         data["form"] = formulario
     return render(request, 'registration/registro.html', data)
+
+
+def Ver_Material(request, id):
+    material = Material.objects.get(idMaterial=id)
+    datos = {
+        'form': MaterialForm(instance=material)
+    }
+    if request.method == 'POST':
+        formulario = MaterialForm(data=request.POST, instance=material)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Producto modificado correctamente")
+            return redirect(to="Admin_General")
+        datos = {
+            'form': MaterialForm(instance=material),
+            'mensaje': "Modificado correctamente"
+        }
+    return render(request, 'core/Ver_Material.html',datos)
