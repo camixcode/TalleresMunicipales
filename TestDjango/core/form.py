@@ -39,3 +39,8 @@ class CrearCuentaAdmin (UserCreationForm):
     model = User
     fields=['username',"first_name","last_name","email","is_superuser","password1","password2"]
 
+class CrearCuentaInstructor (UserCreationForm):
+   class Meta:
+    model = User
+    fields=['username',"first_name","last_name","email","is_staff","password1","password2"]
+

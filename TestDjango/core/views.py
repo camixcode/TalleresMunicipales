@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .form import MaterialForm, CustomerUserCreationForm, PostulacionInstrForm, CrearCuentaAdmin
+from .form import MaterialForm, CustomerUserCreationForm, PostulacionInstrForm, CrearCuentaAdmin,CrearCuentaInstructor
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.shortcuts import redirect, render
@@ -303,6 +303,7 @@ def Registro_Cuenta_Admin(request):
     if request.method == 'POST':
         formulario = CrearCuentaAdmin(data=request.POST)
         if formulario.is_valid():
+            formulario.cleaned_data['IS_STAFF']=0
             formulario.save()
             messages.success(request, "Cuenta creada correctamente")
             return redirect(to="home")
@@ -310,3 +311,17 @@ def Registro_Cuenta_Admin(request):
     return render(request, 'core/Registro_Cuenta_Admin.html', data)
 
 
+def Registro_Cuenta_Instructor(request):
+    data = {
+        'form': CrearCuentaInstructor
+    }
+    if request.method == 'POST':
+        formulario = CrearCuentaInstructor(data=request.POST)
+        if formulario.is_valid():
+            formulario.cleaned_data['IS_SUPERUSER']=0
+            formulario.cleaned_data['IS_STAFF']=1
+            formulario.save()
+            messages.success(request, "Cuenta creada correctamente")
+            return redirect(to="home")
+        data["form"] = formulario
+    return render(request, 'core/Registro_Cuenta_Instructor.html', data)   

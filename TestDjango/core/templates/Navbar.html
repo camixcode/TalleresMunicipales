@@ -117,13 +117,32 @@ style="font-family: 'Poppins', sans-serif; background: linear-gradient(to right,
                             </li>
                             <li><a class="dropdown-item" href="{% url 'Admin_Taller' %}"><p class="text-md-center text-black fs-6" >Administrar taller</p></a></li>
                             <li><a class="dropdown-item" href="{% url 'Registro_Cuenta_Admin' %}"><p class="text-md-center text-black fs-6" >Crear cuenta admin</p></a></li>
+                            <li><a class="dropdown-item" href="{% url 'Registro_Cuenta_Instructor' %}"><p class="text-md-center text-black fs-6" >Crear cuenta instructor</p></a></li>
+
                         </ul>
                     </li>
-                   
-
-
                     {% endif %}
+                    
+                    {% if user.is_staff %}
+                <li class="nav-item dropdown">
+                    <a 
+                    class="nav-link dropdown-toggle" 
+                    href="#" role="button" 
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <p class="text-md-center text-black fs-5 fw-bold" >Administracion</p>
+                    </a>
+                    <ul class="dropdown-menu" style="font-family: 'Poppins', sans-serif; background: #e4a71a;background: linear-gradient(to right, #aca4a0, #c0b9b2, #aca4a0)">
+                        <li><a class="dropdown-item" href="{% url 'Admin_General'%}"><p class="text-md-center text-black fs-6" >Administrar material</p></a></li>
+                    </ul>
+                </li>
+
+                
+
+
+                {% endif %}
                 </ul>
+
                 <div class="d-flex justify-content-end">
                     {% if user.is_authenticated %}
                     <button class="btn btn-primary">
